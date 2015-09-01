@@ -21,7 +21,7 @@ public class MyFrame extends JFrame {
 		
 		//TODO
 		//Mettere un water
-		img = new ImageIcon("src/view/images/KingN.gif").getImage();
+		img = new ImageIcon("images/KingN.gif").getImage();
 		setIconImage(img);
 		
 		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
@@ -34,6 +34,7 @@ public class MyFrame extends JFrame {
 			for(int j=0; j<8; j++){
 				
 				final MyButton bottone = new MyButton(i, j);
+				bottone.setIcon(new ImageIcon(img));
 				panel.add(bottone);
 
 				bottone.addActionListener(new ActionListener() {
