@@ -16,13 +16,16 @@ public class MyFrame extends JFrame {
 	private static final int DEFAULT_WIDTH = 600;
 	private static final int DEFAULT_HEIGHT = 400;
 	private static Image img = null;
+	private static Image img2 = null;
 	
 	public MyFrame(){
 		
 		//TODO
 		//Mettere un water
-		img = new ImageIcon("images/KingN.gif").getImage();
+		img = new ImageIcon("images/chess.gif").getImage();
 		setIconImage(img);
+		
+		img2 = new ImageIcon("images/CavalloB.gif").getImage();
 		
 		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		//setLayout(new FlowLayout());
@@ -34,7 +37,7 @@ public class MyFrame extends JFrame {
 			for(int j=0; j<8; j++){
 				
 				final MyButton bottone = new MyButton(i, j);
-				bottone.setIcon(new ImageIcon(img));
+				bottone.setIcon(new ImageIcon(img2));
 				panel.add(bottone);
 
 				bottone.addActionListener(new ActionListener() {
