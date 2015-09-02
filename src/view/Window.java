@@ -18,6 +18,7 @@ public class Window {
 				frame.setTitle("Chess");
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.setVisible(true);
+				frame.repaint();
 			}
 		});	
 	}

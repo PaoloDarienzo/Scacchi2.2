@@ -46,6 +46,7 @@ public class Main {
 						if (scacchiera.Move(scacchiera, scacchiera.getPedine(x, y), newX, newY)){
 							turn = (turn == Colour.Bianco) ? Colour.Nero : Colour.Bianco;
 							//cambio immagine
+							
 						}
 						
 						System.out.println(scacchiera.toString());

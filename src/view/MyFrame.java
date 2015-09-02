@@ -76,6 +76,7 @@ public class MyFrame extends JFrame {
 			}
 		}
 		
+		//Black pedines
 		img = new ImageIcon("images/TorreN.gif").getImage();
 		ButtonMatrix[0][0].setIcon(new ImageIcon(img));
 		ButtonMatrix[0][7].setIcon(new ImageIcon(img));
@@ -99,6 +100,7 @@ public class MyFrame extends JFrame {
 			ButtonMatrix[1][i].setIcon(new ImageIcon(img));
 		}
 		
+		//White pedines
 		img = new ImageIcon("images/TorreB.gif").getImage();
 		ButtonMatrix[7][0].setIcon(new ImageIcon(img));
 		ButtonMatrix[7][7].setIcon(new ImageIcon(img));
