@@ -1,6 +1,9 @@
 package view;
 
 import java.util.Scanner;
+import java.applet.*;
+import java.awt.*;
+import javax.swing.*;
 import controller.*;
 import model.Board;
 import model.Colour;
@@ -29,11 +32,12 @@ public class Main {
 			
 			//TODO
 			//chiamo la grafica
-			Window game = new Window();
+			//Window game = new Window();
 			
 			//creating, initializing and first printing of the board
 			Board scacchiera = new Board();
 			Configuration.Initialization(scacchiera);
+			Window game = new Window(scacchiera);
 			System.out.println(scacchiera.toString());
 			
 			
@@ -50,6 +54,8 @@ public class Main {
 					}
 					else
 						System.out.println("It's not your turn.");
+					
+					//game.repaint();
 				}				
 
 			}
