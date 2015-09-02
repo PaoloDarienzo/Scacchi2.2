@@ -1,12 +1,6 @@
 package view;
 
-import java.awt.Color;
-import java.awt.Image;
-
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-
-import model.Piece;
 
 //TODO
 //da fare javadoc su tutta la grafica
@@ -15,14 +9,14 @@ public class MyButton extends JButton {
 	
 	private int x;
 	private int y;
-	private Image img;
+	//public Image img;
 	
-	public MyButton(int x, int y, Piece pezzo) {
+	public MyButton(int x, int y) {
 		
 		super();
 		this.x = x;
 		this.y = y;
-		switch(pezzo){
+		/*switch(pezzo){
 		case K:
 			this.img = new ImageIcon("images/KingN.gif").getImage();
 			break;
@@ -64,7 +58,7 @@ public class MyButton extends JButton {
 			break;
 		default:
 			break;
-		}
+		}*/
 		
 	}
 
@@ -77,5 +71,10 @@ public class MyButton extends JButton {
 		
 		return this.y;
 	}
+	
+	/*
+	public Image getImage(){
+		return this.img;
+	}*/
 	
 }

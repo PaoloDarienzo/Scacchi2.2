@@ -7,7 +7,9 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -18,19 +20,16 @@ import model.Piece;
 public class MyFrame extends JFrame {
 	
 	private JPanel panel;
+	private JButton ButtonMatrix[][] = new JButton[8][8];
 	private static final int DEFAULT_WIDTH = 600;
 	private static final int DEFAULT_HEIGHT = 400;
 	private static Image icon = null;
-	private static Image img2 = null;
+	private static Image img = null;
 	
-	public MyFrame(Board scacchiera){
+	public MyFrame(){
 		
-		//TODO
-		//Mettere un water
-		icon = new ImageIcon("images/chess.gif").getImage();
+		icon = new ImageIcon("images/Chessboard.gif").getImage();
 		setIconImage(icon);
-		
-		img2 = new ImageIcon("images/CavalloB.gif").getImage();
 		
 		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
 		//setLayout(new FlowLayout());
@@ -44,9 +43,9 @@ public class MyFrame extends JFrame {
 				//TODO
 				//Inserire nel costruttore il colore?
 				
-				Piece pezzo = scacchiera.getPedine(i, j).getPiece();
+				final MyButton bottone = new MyButton(i, j);
 				
-				final MyButton bottone = new MyButton(i, j, pezzo);
+				ButtonMatrix[i][j]= bottone;
 				
 				if ((i+j)%2 == 0)
 					bottone.setBackground(Color.WHITE);
@@ -69,23 +68,58 @@ public class MyFrame extends JFrame {
 		            		Main.sem = true;
 		            	}
 		            	
-		            	Main.FirstClick = !Main.FirstClick;
-		            	
-		            	/*
-		            	if (Main.sem)
-		            		Main.sem = false;
-		            	else
-		            		Main.sem = true;*/
-		            	
-		            	//TODO
-		            	//mettiamo move
-		            	
-		            	
+		            	Main.FirstClick = !Main.FirstClick;		            	
 		            	
 		            }
 		         });
 				
 			}
+		}
+		
+		img = new ImageIcon("images/TorreN.gif").getImage();
+		ButtonMatrix[0][0].setIcon(new ImageIcon(img));
+		ButtonMatrix[0][7].setIcon(new ImageIcon(img));
+		
+		img = new ImageIcon("images/CavalloN.gif").getImage();
+		ButtonMatrix[0][1].setIcon(new ImageIcon(img));
+		ButtonMatrix[0][6].setIcon(new ImageIcon(img));
+		
+		img = new ImageIcon("images/AlfiereN.gif").getImage();
+		ButtonMatrix[0][2].setIcon(new ImageIcon(img));
+		ButtonMatrix[0][5].setIcon(new ImageIcon(img));
+		
+		img = new ImageIcon("images/QueenN.gif").getImage();
+		ButtonMatrix[0][3].setIcon(new ImageIcon(img));
+		
+		img = new ImageIcon("images/KingN.gif").getImage();
+		ButtonMatrix[0][4].setIcon(new ImageIcon(img));
+		
+		img = new ImageIcon("images/PedoneN.gif").getImage();
+		for (int i=0; i<8; i++){
+			ButtonMatrix[1][i].setIcon(new ImageIcon(img));
+		}
+		
+		img = new ImageIcon("images/TorreB.gif").getImage();
+		ButtonMatrix[7][0].setIcon(new ImageIcon(img));
+		ButtonMatrix[7][7].setIcon(new ImageIcon(img));
+		
+		img = new ImageIcon("images/CavalloB.gif").getImage();
+		ButtonMatrix[7][1].setIcon(new ImageIcon(img));
+		ButtonMatrix[7][6].setIcon(new ImageIcon(img));
+		
+		img = new ImageIcon("images/AlfiereB.gif").getImage();
+		ButtonMatrix[7][2].setIcon(new ImageIcon(img));
+		ButtonMatrix[7][5].setIcon(new ImageIcon(img));
+		
+		img = new ImageIcon("images/KingB.gif").getImage();
+		ButtonMatrix[7][3].setIcon(new ImageIcon(img));
+
+		img = new ImageIcon("images/QueenB.gif").getImage();
+		ButtonMatrix[7][4].setIcon(new ImageIcon(img));
+		
+		img = new ImageIcon("images/PedoneB.gif").getImage();
+		for (int i=0; i<8; i++){
+			ButtonMatrix[6][i].setIcon(new ImageIcon(img));
 		}
 		
 		add(panel, BorderLayout.CENTER);

@@ -1,10 +1,7 @@
 package view;
 
 import java.util.Scanner;
-import java.applet.*;
-import java.awt.*;
-import javax.swing.*;
-import controller.*;
+import controller.Configuration;
 import model.Board;
 import model.Colour;
 
@@ -32,14 +29,13 @@ public class Main {
 			
 			//TODO
 			//chiamo la grafica
-			//Window game = new Window();
+			Window game = new Window();
+			
 			
 			//creating, initializing and first printing of the board
-			Board scacchiera = new Board();
+			final Board scacchiera = new Board();
 			Configuration.Initialization(scacchiera);
-			Window game = new Window(scacchiera);
 			System.out.println(scacchiera.toString());
-			
 			
 			while (!scacchiera.checkmate){
 				
@@ -47,8 +43,10 @@ public class Main {
 					sem = false;
 					if(scacchiera.getPedine(x, y).getColour() == turn){
 					
-						if (scacchiera.Move(scacchiera, scacchiera.getPedine(x, y), newX, newY))
+						if (scacchiera.Move(scacchiera, scacchiera.getPedine(x, y), newX, newY)){
 							turn = (turn == Colour.Bianco) ? Colour.Nero : Colour.Bianco;
+							//cambio immagine
+						}
 						
 						System.out.println(scacchiera.toString());
 					}

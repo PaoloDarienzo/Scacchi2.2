@@ -8,21 +8,18 @@ import model.Board;
 
 public class Window {
 
-	public Window(final Board scacchiera){
+	public Window(){
 		
 		EventQueue.invokeLater(new Runnable(){
 			
 			public void run(){
 				
-				MyFrame frame = new MyFrame(scacchiera);
+				MyFrame frame = new MyFrame();
 				frame.setTitle("Chess");
 				frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 				frame.setVisible(true);
-				frame.repaint();
 			}
 		});	
-		
-		
 	}
 	
 }
