@@ -127,4 +127,27 @@ public class MyFrame extends JFrame {
 		add(panel, BorderLayout.CENTER);
 		
 	}
+
+	/*
+	 private void generateBoard() {
+
+	        panel.removeAll();
+	       
+	        for (int i = 0; i < 8; i++) {
+	            for (int j = 0; j < 8; j++) {
+	                campoB[i][j] = new ButtonPieces((b) ? Color.GRAY : Color.WHITE, i, j, this, (i * 8 + j)); // ad ogni i,j genero un bottone che (dipendente da b) sarà grigio o bianco
+	                window.add(campoB[i][j]); // aggiungerà alla finestra il bottone e le sue proprietà
+	                if (control.getPezzo(i, j) instanceof Pedina) { // infine inserisco le icone sui bottoni, se sarà pedina userà il metodo che fornirà il bottone dell'icona pedina
+	                    campoB[i][j].setIcon(control.getPezzo(i, j) != null ? control.getPezzo(i, j).getColore() : null); // se alla posizione i,j c'è un oggetto, passo il colore al metodo setIcon che in base a quello mi darà l'icona giusta                   
+	                } else { // se invece sarà un damone lo fornirà dell'icona damone, valido sia per il giocatore che per il PC
+	                    campoB[i][j].setSuperIcon(control.getPezzo(i, j) != null ? control.getPezzo(i, j).getColore() : null); // metodo identico al precedente che però setta icone differenti se l'oggetto è un damone
+	                }
+
+	                b = (j != 7) ? !b : b; // inverte il boolean del colore del campo
+	            }
+	        }
+	        window.revalidate(); // Aggiorna la situazione grafica rivalutando il tutto, questo comando permette di visualizzare i cambiamenti
+	    }*/
+
+	
 }
