@@ -27,10 +27,7 @@ public class Main {
 
 		while (gioco == 1){
 			
-			//TODO
-			//chiamo la grafica
 			Window game = new Window();
-			
 			
 			//creating, initializing and first printing of the board
 			final Board scacchiera = new Board();
@@ -45,7 +42,7 @@ public class Main {
 					
 						if (scacchiera.Move(scacchiera, scacchiera.getPedine(x, y), newX, newY)){
 							turn = (turn == Colour.Bianco) ? Colour.Nero : Colour.Bianco;
-							//cambio immagine
+							MyFrame.generateBoard(scacchiera);
 							
 						}
 						
@@ -54,7 +51,6 @@ public class Main {
 					else
 						System.out.println("It's not your turn.");
 					
-					//game.repaint();
 				}				
 
 			}

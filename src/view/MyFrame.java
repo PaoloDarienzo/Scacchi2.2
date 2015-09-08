@@ -7,27 +7,83 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import model.Board;
-import model.Colour;
 import model.Piece;
 
+/**
+ * Frame that display the current match.
+ * @author Paolo D'Arienzo VR376656, Serena Cavaletti VR364691
+ *
+ */
 public class MyFrame extends JFrame {
 	
-	private JPanel panel;
-	private JButton ButtonMatrix[][] = new JButton[8][8];
+	/**
+	 * Auto-generated serialVersionUID
+	 */
+	private static final long serialVersionUID = 2339646745849754800L;
+	private static JPanel panel;
+	private static JButton ButtonMatrix[][] = new JButton[8][8];
 	private static final int DEFAULT_WIDTH = 600;
 	private static final int DEFAULT_HEIGHT = 400;
+	
 	private static Image icon = null;
-	private static Image img = null;
+	/**
+	 * Loading white bishop image
+	 */
+	private static Image AlfiereB = new ImageIcon("images/AlfiereB.gif").getImage();
+	/**
+	 * Loading black bishop image
+	 */
+	private static Image AlfiereN = new ImageIcon("images/AlfiereN.gif").getImage();
+	/**
+	 * Loading white knight image
+	 */
+	private static Image CavalloB = new ImageIcon("images/CavalloB.gif").getImage();
+	/**
+	 * Loading black knight image
+	 */
+	private static Image CavalloN = new ImageIcon("images/CavalloN.gif").getImage();
+	/**
+	 * Loading white king image
+	 */
+	private static Image KingB = new ImageIcon("images/KingB.gif").getImage();
+	/**
+	 * Loading black king image
+	 */
+	private static Image KingN = new ImageIcon("images/KingN.gif").getImage();
+	/**
+	 * Loading white pawn image
+	 */
+	private static Image PedoneB = new ImageIcon("images/PedoneB.gif").getImage();
+	/**
+	 * Loading black pawn image
+	 */
+	private static Image PedoneN = new ImageIcon("images/PedoneN.gif").getImage();
+	/**
+	 * Loading white queen image
+	 */
+	private static Image QueenB = new ImageIcon("images/QueenB.gif").getImage();
+	/**
+	 * Loading black queen image
+	 */
+	private static Image QueenN = new ImageIcon("images/QueenN.gif").getImage();
+	/**
+	 * Loading white rook image
+	 */
+	private static Image TorreB = new ImageIcon("images/TorreB.gif").getImage();
+	/**
+	 * Loading black rook image
+	 */
+	private static Image TorreN = new ImageIcon("images/TorreN.gif").getImage();
 	
 	public MyFrame(){
 		
+		//Setting the window icon
 		icon = new ImageIcon("images/Chessboard.gif").getImage();
 		setIconImage(icon);
 		
@@ -39,9 +95,6 @@ public class MyFrame extends JFrame {
 		
 		for(int i=0; i<8; i++){
 			for(int j=0; j<8; j++){
-				
-				//TODO
-				//Inserire nel costruttore il colore?
 				
 				final MyButton bottone = new MyButton(i, j);
 				
@@ -77,77 +130,138 @@ public class MyFrame extends JFrame {
 		}
 		
 		//Black pedines
-		img = new ImageIcon("images/TorreN.gif").getImage();
-		ButtonMatrix[0][0].setIcon(new ImageIcon(img));
-		ButtonMatrix[0][7].setIcon(new ImageIcon(img));
+		ButtonMatrix[0][0].setIcon(new ImageIcon(TorreN));
+		ButtonMatrix[0][7].setIcon(new ImageIcon(TorreN));
 		
-		img = new ImageIcon("images/CavalloN.gif").getImage();
-		ButtonMatrix[0][1].setIcon(new ImageIcon(img));
-		ButtonMatrix[0][6].setIcon(new ImageIcon(img));
+		ButtonMatrix[0][1].setIcon(new ImageIcon(CavalloN));
+		ButtonMatrix[0][6].setIcon(new ImageIcon(CavalloN));
 		
-		img = new ImageIcon("images/AlfiereN.gif").getImage();
-		ButtonMatrix[0][2].setIcon(new ImageIcon(img));
-		ButtonMatrix[0][5].setIcon(new ImageIcon(img));
+		ButtonMatrix[0][2].setIcon(new ImageIcon(AlfiereN));
+		ButtonMatrix[0][5].setIcon(new ImageIcon(AlfiereN));
 		
-		img = new ImageIcon("images/QueenN.gif").getImage();
-		ButtonMatrix[0][3].setIcon(new ImageIcon(img));
+		ButtonMatrix[0][3].setIcon(new ImageIcon(QueenN));
 		
-		img = new ImageIcon("images/KingN.gif").getImage();
-		ButtonMatrix[0][4].setIcon(new ImageIcon(img));
+		ButtonMatrix[0][4].setIcon(new ImageIcon(KingN));
 		
-		img = new ImageIcon("images/PedoneN.gif").getImage();
 		for (int i=0; i<8; i++){
-			ButtonMatrix[1][i].setIcon(new ImageIcon(img));
+			ButtonMatrix[1][i].setIcon(new ImageIcon(PedoneN));
 		}
 		
 		//White pedines
-		img = new ImageIcon("images/TorreB.gif").getImage();
-		ButtonMatrix[7][0].setIcon(new ImageIcon(img));
-		ButtonMatrix[7][7].setIcon(new ImageIcon(img));
+		ButtonMatrix[7][0].setIcon(new ImageIcon(TorreB));
+		ButtonMatrix[7][7].setIcon(new ImageIcon(TorreB));
 		
-		img = new ImageIcon("images/CavalloB.gif").getImage();
-		ButtonMatrix[7][1].setIcon(new ImageIcon(img));
-		ButtonMatrix[7][6].setIcon(new ImageIcon(img));
+		ButtonMatrix[7][1].setIcon(new ImageIcon(CavalloB));
+		ButtonMatrix[7][6].setIcon(new ImageIcon(CavalloB));
 		
-		img = new ImageIcon("images/AlfiereB.gif").getImage();
-		ButtonMatrix[7][2].setIcon(new ImageIcon(img));
-		ButtonMatrix[7][5].setIcon(new ImageIcon(img));
+		ButtonMatrix[7][2].setIcon(new ImageIcon(AlfiereB));
+		ButtonMatrix[7][5].setIcon(new ImageIcon(AlfiereB));
 		
-		img = new ImageIcon("images/KingB.gif").getImage();
-		ButtonMatrix[7][3].setIcon(new ImageIcon(img));
+		ButtonMatrix[7][3].setIcon(new ImageIcon(KingB));
 
-		img = new ImageIcon("images/QueenB.gif").getImage();
-		ButtonMatrix[7][4].setIcon(new ImageIcon(img));
+		ButtonMatrix[7][4].setIcon(new ImageIcon(QueenB));
 		
-		img = new ImageIcon("images/PedoneB.gif").getImage();
 		for (int i=0; i<8; i++){
-			ButtonMatrix[6][i].setIcon(new ImageIcon(img));
+			ButtonMatrix[6][i].setIcon(new ImageIcon(PedoneB));
 		}
 		
 		add(panel, BorderLayout.CENTER);
 		
 	}
 
-	/*
-	 private void generateBoard() {
+	/**
+	 * Method that refresh the game window.
+	 * @param scacchiera Used to retrieve the pieces
+	 */
+	 public static void generateBoard(Board scacchiera) {
 
-	        panel.removeAll();
+		 //Removing everything on the panel
+	     panel.removeAll();
 	       
-	        for (int i = 0; i < 8; i++) {
-	            for (int j = 0; j < 8; j++) {
-	                campoB[i][j] = new ButtonPieces((b) ? Color.GRAY : Color.WHITE, i, j, this, (i * 8 + j)); // ad ogni i,j genero un bottone che (dipendente da b) sarà grigio o bianco
-	                window.add(campoB[i][j]); // aggiungerà alla finestra il bottone e le sue proprietà
-	                if (control.getPezzo(i, j) instanceof Pedina) { // infine inserisco le icone sui bottoni, se sarà pedina userà il metodo che fornirà il bottone dell'icona pedina
-	                    campoB[i][j].setIcon(control.getPezzo(i, j) != null ? control.getPezzo(i, j).getColore() : null); // se alla posizione i,j c'è un oggetto, passo il colore al metodo setIcon che in base a quello mi darà l'icona giusta                   
-	                } else { // se invece sarà un damone lo fornirà dell'icona damone, valido sia per il giocatore che per il PC
-	                    campoB[i][j].setSuperIcon(control.getPezzo(i, j) != null ? control.getPezzo(i, j).getColore() : null); // metodo identico al precedente che però setta icone differenti se l'oggetto è un damone
-	                }
+        for (int i = 0; i < 8; i++) {
+            for (int j = 0; j < 8; j++) {
+            	
+            	final MyButton bottone = new MyButton(i, j); //Creating the button
+				
+				ButtonMatrix[i][j]= bottone; //Adding the button in the matrix
+					
+				//Setting background colour of button
+				if ((i+j)%2 == 0)
+					bottone.setBackground(Color.WHITE);
+				else
+					bottone.setBackground(Color.BLACK);
+				
+				panel.add(bottone); //Adding the button
 
-	                b = (j != 7) ? !b : b; // inverte il boolean del colore del campo
+				//Adding the actionListener to the button
+				bottone.addActionListener(new ActionListener() {
+
+					public void actionPerformed(ActionEvent e) {
+			            	
+						if (Main.FirstClick){
+			            	Main.x = bottone.getbX();
+			            	Main.y = bottone.getbY();
+			            }
+			            else{
+			            	Main.newX = bottone.getbX();
+			            	Main.newY = bottone.getbY();
+			            	Main.sem = true;
+			            }
+			            	
+			            //Setting the first click boolean
+			            Main.FirstClick = !Main.FirstClick;		            	
+			            	
+			         }
+				});
+					
+	            Piece pezzo = scacchiera.getPedine(i, j).getPiece();
+	                
+	            //Assigning the right icon on the button
+	            switch(pezzo){
+	        	case P:
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(PedoneN));
+	        		break;
+	        	case p:
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(PedoneB));
+	        		break;
+	        	case C:
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(CavalloN));
+	        		break;
+	        	case c:
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(CavalloB));
+	        		break;
+	        	case A:
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(AlfiereN));
+	        		break;
+	        	case a:
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(AlfiereB));
+	        		break;
+	        	case Q:
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(QueenN));
+	        		break;
+	        	case q:
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(QueenB));
+	        		break;
+	        	case K:
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(KingN));
+	        		break;
+	        	case k:
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(KingB));
+	        		break;
+	        	case T:
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(TorreN));
+	        		break;
+	        	case t:
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(TorreB));
+	        		break;
+	        	case V:
+	        		break;
 	            }
-	        }
-	        window.revalidate(); // Aggiorna la situazione grafica rivalutando il tutto, questo comando permette di visualizzare i cambiamenti
-	    }*/
-
-	
+	                
+            }
+        }
+	//Validating everything on the panel so it can be desplayed
+	panel.revalidate();
+	        
+	}	
 }

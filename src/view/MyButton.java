@@ -2,79 +2,52 @@ package view;
 
 import javax.swing.JButton;
 
-//TODO
-//da fare javadoc su tutta la grafica
-
+/**
+ * Button constructor.
+ * @author Paolo D'Arienzo VR376656, Serena Cavaletti VR364691
+ */
 public class MyButton extends JButton {
 	
+	/**
+	 * Auto-generated serialVersionUID
+	 */
+	private static final long serialVersionUID = -783386269101341805L;
+	/**
+	 * Coordinate x of the button
+	 */
 	private int x;
+	/**
+	 * Coordinate y of the button
+	 */
 	private int y;
-	//public Image img;
 	
+	/**
+	 * Constructor of the button.
+	 * @param x Coordinate x of the button
+	 * @param y Coordinate y of the button
+	 */
 	public MyButton(int x, int y) {
 		
 		super();
 		this.x = x;
 		this.y = y;
-		/*switch(pezzo){
-		case K:
-			this.img = new ImageIcon("images/KingN.gif").getImage();
-			break;
-		case k:
-			this.img = new ImageIcon("images/KingB.gif").getImage();
-			break;
-		case Q:
-			this.img = new ImageIcon("images/QueenN.gif").getImage();
-			break;
-		case q:
-			this.img = new ImageIcon("images/QueenB.gif").getImage();
-			break;
-		case T:
-			this.img = new ImageIcon("images/TorreN.gif").getImage();
-			break;
-		case t:
-			this.img = new ImageIcon("images/torreB.gif").getImage();
-			break;
-		case A:
-			this.img = new ImageIcon("images/AlfiereN.gif").getImage();
-			break;
-		case a:
-			this.img = new ImageIcon("images/AlfiereB.gif").getImage();
-			break;
-		case C:
-			this.img = new ImageIcon("images/CavalloN.gif").getImage();
-			break;
-		case c:
-			this.img = new ImageIcon("images/CavalloB.gif").getImage();
-			break;
-		case P:
-			this.img = new ImageIcon("images/PedoneN.gif").getImage();
-			break;
-		case p:
-			this.img = new ImageIcon("images/PedoneB.gif").getImage();
-			break;
-		case V:
-			this.img = null;
-			break;
-		default:
-			break;
-		}*/
 		
 	}
 
+	/**
+	 * @return Return coordinate x of the button
+	 */
 	public int getbX() {
 		
 		return this.x;
 	}
 	
+	/**
+	 * @return Return coordinate y of the button
+	 */
 	public int getbY() {
 		
 		return this.y;
 	}
-	
-	/*
-	public Image getImage(){
-		return this.img;
-	}*/
 	
 }
