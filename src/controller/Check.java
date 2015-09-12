@@ -310,6 +310,32 @@ public class Check {
 				if (!isKing){//if I am the king, the arraylist is not updated if I want to move; so the next code is for every other piece	
 					if (Check.selectCheck(scacchiera, candidato, xKingM, yKingM)){
 						if (pC==Piece.T || pC==Piece.t || pC==Piece.A || pC==Piece.a || pC==Piece.Q || pC==Piece.q){
+							
+							if (pC==Piece.Q || pC==Piece.q){
+								//TODO
+								int pCx = candidato.getX();
+								int pCy = candidato.getY();
+								int resultx, resulty;
+								
+								resultx = pCx-xKingM;
+								resulty = pCy-yKingM;
+								
+								if (resultx==0 || resulty==0){//per mangiare muove come torre
+									//quindi la pedina(newX, newY) deve essere mangiata solo come torre
+									resultx = pCx-newX;
+									resulty = pCy-newY;
+									if (resultx==0 || resulty==0){//else non puo' andare
+										if (!Check.selectCheck(scacchiera, candidato, newX, newY)){//The candidate doesn't use the blocked path (see checkmate.txt)
+											moveAllowed = false;
+											break;
+										}
+									}
+								}
+								else if(true){
+									
+								}
+							}
+							
 							if (!Check.selectCheck(scacchiera, candidato, newX, newY)){//The candidate doesn't use the blocked path (see checkmate.txt)
 								moveAllowed = false;
 								break;

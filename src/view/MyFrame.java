@@ -157,9 +157,9 @@ public class MyFrame extends JFrame {
 		ButtonMatrix[7][2].setIcon(new ImageIcon(AlfiereB));
 		ButtonMatrix[7][5].setIcon(new ImageIcon(AlfiereB));
 		
-		ButtonMatrix[7][3].setIcon(new ImageIcon(KingB));
+		ButtonMatrix[7][3].setIcon(new ImageIcon(QueenB));
 
-		ButtonMatrix[7][4].setIcon(new ImageIcon(QueenB));
+		ButtonMatrix[7][4].setIcon(new ImageIcon(KingB));
 		
 		for (int i=0; i<8; i++){
 			ButtonMatrix[6][i].setIcon(new ImageIcon(PedoneB));
