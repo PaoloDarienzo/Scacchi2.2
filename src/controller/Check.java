@@ -817,7 +817,7 @@ public class Check {
 							}
 						}
 						else if((xPedina>xKingO) && (yPedina>yKingO)){//pedine in LOWER RIGHT of the king
-							for (int i=1; xPedina+i < xKingO && yPedina-i > yKingO; i++){ //Every box in the path
+							for (int i=1; xPedina-i > xKingO && yPedina-i > yKingO; i++){ //Every box in the path
 								if(coloreOpposto==Colour.Nero){
 									for(int x=1; x < scacchiera.Neri.size(); x++){
 										if (Check.selectCheck(scacchiera, scacchiera.Neri.get(x), xPedina+i, yPedina-i)){
