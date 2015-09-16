@@ -310,33 +310,8 @@ public class Check {
 				if (!isKing){//if I am the king, the arraylist is not updated if I want to move; so the next code is for every other piece	
 					if (Check.selectCheck(scacchiera, candidato, xKingM, yKingM)){
 						if (pC==Piece.T || pC==Piece.t || pC==Piece.A || pC==Piece.a || pC==Piece.Q || pC==Piece.q){
-							
-							if (pC==Piece.Q || pC==Piece.q){
-								//TODO
-								int pCx = candidato.getX();
-								int pCy = candidato.getY();
-								int resultx, resulty;
-								
-								resultx = pCx-xKingM;
-								resulty = pCy-yKingM;
-								
-								if (resultx==0 || resulty==0){//per mangiare muove come torre
-									//quindi la pedina(newX, newY) deve essere mangiata solo come torre
-									resultx = pCx-newX;
-									resulty = pCy-newY;
-									if (resultx==0 || resulty==0){//else non puo' andare
-										if (!Check.selectCheck(scacchiera, candidato, newX, newY)){//The candidate doesn't use the blocked path (see checkmate.txt)
-											moveAllowed = false;
-											break;
-										}
-									}
-								}
-								else if(true){
-									
-								}
-							}
-							
-							if (!Check.selectCheck(scacchiera, candidato, newX, newY)){//The candidate doesn't use the blocked path (see checkmate.txt)
+						//TODO
+							if(!checkPath(scacchiera, candidato, pedinaMossa, newX, newY)){
 								moveAllowed = false;
 								break;
 							}
@@ -405,6 +380,82 @@ public class Check {
 		return moveAllowed;
 	}
 	
+	/**
+	 * 
+	 * @param scacchiera
+	 * @param candidato
+	 * @param pedinaMossa
+	 * @param newX
+	 * @param newY
+	 * @return
+	 */
+	private static boolean checkPath(Board scacchiera, Pedine candidato, Pedine pedinaMossa, int newX, int newY) {
+		// TODO
+		
+		int cx = candidato.getX();
+		int cy = candidato.getY();
+		int xKingM, yKingM;
+		
+		if (pedinaMossa.getColour() == Colour.Bianco){
+			xKingM = scacchiera.Bianchi.get(0).getX();
+			yKingM = scacchiera.Bianchi.get(0).getY();
+		}
+		else{
+			xKingM = scacchiera.Neri.get(0).getX();
+			yKingM = scacchiera.Neri.get(0).getY();
+		}			
+		
+		if (cx==xKingM){//Mangia in riga
+			if (yKingM > cy){//Il re e' a destra
+				for (int i=1; cy+i<yKingM; i++){
+					if (newY==cy+i && newX==cx)//allora la pedinaMossa e' nel path
+						return true;
+				}
+			}
+			else{//il re e' a sinistra
+				for (int i=-1; cy+i<yKingM; i--){
+					if (newY==cy+i && newX==cx)//allora la pedinaMossa e' nel path
+						return true;
+				}
+			}
+		}
+		else if (cy==yKingM){//Mangia in colonna
+			if (xKingM > cx){//Il re e' sotto
+				for (int i=1; cx+i<xKingM; i++){
+					if (newX==cx+i && newY==cy)//allora la pedinaMossa e' nel path
+						return true;
+				}
+			}
+			else{//il re e' sopra
+				for (int i=-1; cx+i<xKingM; i--){
+					if (newX==cx+i && newY==cy)//allora la pedinaMossa e' nel path
+						return true;
+				}
+			}
+		}
+		else{//mangia in diagonale
+			for (int i=1; cx+i<xKingM && cy+i<yKingM; i++){//il re e' in basso a destra
+				if (newX==cx+i && newY==cy+i)
+					return true;
+			}
+			for (int i=1; cx+i<xKingM && cy-i<yKingM; i++){//il re e' in basso a sinistra
+				if (newX==cx+i && newY==cy-i)
+					return true;
+			}
+			for (int i=1; cx-i<xKingM && cy-i<yKingM; i++){//il re e' in alto a sinistra
+				if (newX==cx-i && newY==cy-i)
+					return true;
+			}
+			for (int i=1; cx-i<xKingM && cy+i<yKingM; i++){//il re e' in alto a destra
+				if (newX==cx-i && newY==cy+i)
+					return true;
+			}
+			
+		}
+		
+		return false;
+	}
+
 	/**
 	 * Set the check variable of board.
 	 * @param scacchiera Matrix which I am working on
