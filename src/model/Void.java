@@ -14,7 +14,7 @@ public class Void extends Pedine{
 	 * @param y Coordinate y
 	 */
 	public Void (int x, int y){
-		super (x, y, Piece.V, Colour.Neutro);
+		super (x, y, Piece.V, Colour.neutro);
 	}
 
 }

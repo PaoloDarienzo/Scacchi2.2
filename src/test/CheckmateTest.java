@@ -16,7 +16,7 @@ public class CheckmateTest {
 	 * Testing checkmate with Fool's mate scheme.
 	 */
 	@Test
-	public void FoolsMate() {
+	public void foolsMate() {
 		/*
 		 * Moving the pieces according to the scheme " fool's mate",
 		 * and checking if check and checkmate are true.
@@ -24,15 +24,15 @@ public class CheckmateTest {
 		 */
 		
 		Board scacchiera = new Board();
-		Configuration.Initialization(scacchiera);
+		Configuration.initialization(scacchiera);
 		
 		//Moving the pedines
-		scacchiera.Move(scacchiera, scacchiera.getPedine(6, 5), 5, 5);
-		scacchiera.Move(scacchiera, scacchiera.getPedine(1, 4), 2, 4);
-		scacchiera.Move(scacchiera, scacchiera.getPedine(6, 6), 5, 6);
-		scacchiera.Move(scacchiera, scacchiera.getPedine(2, 4), 3, 4);
-		scacchiera.Move(scacchiera, scacchiera.getPedine(5, 6), 4, 6);
-		scacchiera.Move(scacchiera, scacchiera.getPedine(0, 3), 4, 7);
+		scacchiera.move(scacchiera, scacchiera.getPedine(6, 5), 5, 5);
+		scacchiera.move(scacchiera, scacchiera.getPedine(1, 4), 2, 4);
+		scacchiera.move(scacchiera, scacchiera.getPedine(6, 6), 5, 6);
+		scacchiera.move(scacchiera, scacchiera.getPedine(2, 4), 3, 4);
+		scacchiera.move(scacchiera, scacchiera.getPedine(5, 6), 4, 6);
+		scacchiera.move(scacchiera, scacchiera.getPedine(0, 3), 4, 7);
 		
 		assertFalse(scacchiera.getCheck(1));
 		assertTrue(scacchiera.getCheck(0));
@@ -47,16 +47,16 @@ public class CheckmateTest {
 	public void simpleCheck(){
 		
 		Board scacchiera = new Board();
-		Configuration.Initialization(scacchiera);
+		Configuration.initialization(scacchiera);
 		
 		
-		scacchiera.Move(scacchiera, scacchiera.getPedine(6, 4), 5, 4);
-		scacchiera.Move(scacchiera, scacchiera.getPedine(5, 4), 4, 4);
-		scacchiera.Move(scacchiera, scacchiera.getPedine(4, 4), 3, 4);
-		scacchiera.Move(scacchiera, scacchiera.getPedine(3, 4), 2, 4);
-		scacchiera.Move(scacchiera, scacchiera.getPedine(1, 3), 2, 4);
-		scacchiera.Move(scacchiera, scacchiera.getPedine(0, 3), 3, 3);
-		scacchiera.Move(scacchiera, scacchiera.getPedine(3, 3), 3, 4);
+		scacchiera.move(scacchiera, scacchiera.getPedine(6, 4), 5, 4);
+		scacchiera.move(scacchiera, scacchiera.getPedine(5, 4), 4, 4);
+		scacchiera.move(scacchiera, scacchiera.getPedine(4, 4), 3, 4);
+		scacchiera.move(scacchiera, scacchiera.getPedine(3, 4), 2, 4);
+		scacchiera.move(scacchiera, scacchiera.getPedine(1, 3), 2, 4);
+		scacchiera.move(scacchiera, scacchiera.getPedine(0, 3), 3, 3);
+		scacchiera.move(scacchiera, scacchiera.getPedine(3, 3), 3, 4);
 		
 		assertFalse(scacchiera.getCheck(1));
 		assertTrue(scacchiera.getCheck(0));

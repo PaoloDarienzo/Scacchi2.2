@@ -14,7 +14,7 @@ public class Window {
 		
 		EventQueue.invokeLater(new Runnable(){
 			
-			public void run(){
+			public final void run(){
 				
 				MyFrame frame = new MyFrame();
 				frame.setTitle("Chess");

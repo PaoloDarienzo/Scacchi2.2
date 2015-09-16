@@ -14,7 +14,7 @@ public class Configuration {
 	 * This function initialize the board.
 	 * @param scacchiera Matrix to initialize
 	 */
-	public static void Initialization(Board scacchiera){
+	public static void initialization(Board scacchiera){
 		
 		int i=0, j=0;
 		
@@ -26,61 +26,61 @@ public class Configuration {
 		//Call the setBoard for every piece of the chessboard
 		
 		//Setting Black side
-		scacchiera.setBoard(0, 0, Piece.T, Colour.Nero);
-		scacchiera.setBoard(0, 7, Piece.T, Colour.Nero);
-		scacchiera.setBoard(0, 1, Piece.C, Colour.Nero);
-		scacchiera.setBoard(0, 6, Piece.C, Colour.Nero);
-		scacchiera.setBoard(0, 2, Piece.A, Colour.Nero);
-		scacchiera.setBoard(0, 5, Piece.A, Colour.Nero);
-		scacchiera.setBoard(0, 4, Piece.K, Colour.Nero);
-		scacchiera.setBoard(0, 3, Piece.Q, Colour.Nero);
+		scacchiera.setBoard(0, 0, Piece.T, Colour.nero);
+		scacchiera.setBoard(0, 7, Piece.T, Colour.nero);
+		scacchiera.setBoard(0, 1, Piece.C, Colour.nero);
+		scacchiera.setBoard(0, 6, Piece.C, Colour.nero);
+		scacchiera.setBoard(0, 2, Piece.A, Colour.nero);
+		scacchiera.setBoard(0, 5, Piece.A, Colour.nero);
+		scacchiera.setBoard(0, 4, Piece.K, Colour.nero);
+		scacchiera.setBoard(0, 3, Piece.Q, Colour.nero);
 		for (i=1; i<2; i++)
 			for (j=0; j<8; j++)
-				scacchiera.setBoard(i, j, Piece.P, Colour.Nero);
+				scacchiera.setBoard(i, j, Piece.P, Colour.nero);
 		
 		//Setting White side
-		scacchiera.setBoard(7, 0, Piece.t, Colour.Bianco);
-		scacchiera.setBoard(7, 7, Piece.t, Colour.Bianco);
-		scacchiera.setBoard(7, 1, Piece.c, Colour.Bianco);
-		scacchiera.setBoard(7, 6, Piece.c, Colour.Bianco);
-		scacchiera.setBoard(7, 2, Piece.a, Colour.Bianco);
-		scacchiera.setBoard(7, 5, Piece.a, Colour.Bianco);
-		scacchiera.setBoard(7, 4, Piece.k, Colour.Bianco);
-		scacchiera.setBoard(7, 3, Piece.q, Colour.Bianco);
+		scacchiera.setBoard(7, 0, Piece.t, Colour.bianco);
+		scacchiera.setBoard(7, 7, Piece.t, Colour.bianco);
+		scacchiera.setBoard(7, 1, Piece.c, Colour.bianco);
+		scacchiera.setBoard(7, 6, Piece.c, Colour.bianco);
+		scacchiera.setBoard(7, 2, Piece.a, Colour.bianco);
+		scacchiera.setBoard(7, 5, Piece.a, Colour.bianco);
+		scacchiera.setBoard(7, 4, Piece.k, Colour.bianco);
+		scacchiera.setBoard(7, 3, Piece.q, Colour.bianco);
 		for (i=6; i<7; i++)
 			for (j=0; j<8; j++)
-				scacchiera.setBoard(i, j, Piece.p, Colour.Bianco);
+				scacchiera.setBoard(i, j, Piece.p, Colour.bianco);
 		
 		//Setting blank spaces
 		for (i=2; i<6 ; i++)
 			for (j=0; j<8; j++)
-				scacchiera.setBoard(i, j, Piece.V, Colour.Neutro);
+				scacchiera.setBoard(i, j, Piece.V, Colour.neutro);
 		
 		//Setting lists: Black one
-		scacchiera.Neri.add(scacchiera.getPedine(0, 4)); //king first
-		scacchiera.Neri.add(scacchiera.getPedine(0, 0));
-		scacchiera.Neri.add(scacchiera.getPedine(0, 7));
-		scacchiera.Neri.add(scacchiera.getPedine(0, 1));
-		scacchiera.Neri.add(scacchiera.getPedine(0, 6));
-		scacchiera.Neri.add(scacchiera.getPedine(0, 2));
-		scacchiera.Neri.add(scacchiera.getPedine(0, 5));
-		scacchiera.Neri.add(scacchiera.getPedine(0, 3));
+		scacchiera.neri.add(scacchiera.getPedine(0, 4)); //king first
+		scacchiera.neri.add(scacchiera.getPedine(0, 0));
+		scacchiera.neri.add(scacchiera.getPedine(0, 7));
+		scacchiera.neri.add(scacchiera.getPedine(0, 1));
+		scacchiera.neri.add(scacchiera.getPedine(0, 6));
+		scacchiera.neri.add(scacchiera.getPedine(0, 2));
+		scacchiera.neri.add(scacchiera.getPedine(0, 5));
+		scacchiera.neri.add(scacchiera.getPedine(0, 3));
 		for (i=1; i<2; i++)
 			for (j=0; j<8; j++)
-				scacchiera.Neri.add(scacchiera.getPedine(i, j));
+				scacchiera.neri.add(scacchiera.getPedine(i, j));
 		
 		//White one
-		scacchiera.Bianchi.add(scacchiera.getPedine(7, 4)); //king first
-		scacchiera.Bianchi.add(scacchiera.getPedine(7, 0));
-		scacchiera.Bianchi.add(scacchiera.getPedine(7, 7));
-		scacchiera.Bianchi.add(scacchiera.getPedine(7, 1));
-		scacchiera.Bianchi.add(scacchiera.getPedine(7, 6));
-		scacchiera.Bianchi.add(scacchiera.getPedine(7, 2));
-		scacchiera.Bianchi.add(scacchiera.getPedine(7, 5));
-		scacchiera.Bianchi.add(scacchiera.getPedine(7, 3));
+		scacchiera.bianchi.add(scacchiera.getPedine(7, 4)); //king first
+		scacchiera.bianchi.add(scacchiera.getPedine(7, 0));
+		scacchiera.bianchi.add(scacchiera.getPedine(7, 7));
+		scacchiera.bianchi.add(scacchiera.getPedine(7, 1));
+		scacchiera.bianchi.add(scacchiera.getPedine(7, 6));
+		scacchiera.bianchi.add(scacchiera.getPedine(7, 2));
+		scacchiera.bianchi.add(scacchiera.getPedine(7, 5));
+		scacchiera.bianchi.add(scacchiera.getPedine(7, 3));
 		for (i=6; i<7; i++)
 			for (j=0; j<8; j++)
-				scacchiera.Bianchi.add(scacchiera.getPedine(i, j));
+				scacchiera.bianchi.add(scacchiera.getPedine(i, j));
 	}
 
 }

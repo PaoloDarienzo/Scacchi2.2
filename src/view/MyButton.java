@@ -10,16 +10,16 @@ public class MyButton extends JButton {
 	
 	/**
 	 * Auto-generated serialVersionUID
-	 */
-	private static final long serialVersionUID = -783386269101341805L;
+	 *///TODO
+	//private static final long serialVersionUID = -783386269101341805L;
 	/**
 	 * Coordinate x of the button
 	 */
-	private int x;
+	private int bx;
 	/**
 	 * Coordinate y of the button
 	 */
-	private int y;
+	private int by;
 	
 	/**
 	 * Constructor of the button.
@@ -29,25 +29,25 @@ public class MyButton extends JButton {
 	public MyButton(int x, int y) {
 		
 		super();
-		this.x = x;
-		this.y = y;
+		this.bx = x;
+		this.by = y;
 		
 	}
 
 	/**
 	 * @return Return coordinate x of the button
 	 */
-	public int getbX() {
+	public final int getbX() {
 		
-		return this.x;
+		return this.bx;
 	}
 	
 	/**
 	 * @return Return coordinate y of the button
 	 */
-	public int getbY() {
+	public final int getbY() {
 		
-		return this.y;
+		return this.by;
 	}
 	
 }

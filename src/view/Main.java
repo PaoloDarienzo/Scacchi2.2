@@ -12,8 +12,8 @@ import model.Colour;
 public class Main {
 	
 	static boolean sem = false;
-	static boolean FirstClick = true;
-	private static Colour turn = Colour.Bianco;
+	static boolean firstClick = true;
+	private static Colour turn = Colour.bianco;
 	static int x;
 	static int y;
 	static int newX;
@@ -29,11 +29,11 @@ public class Main {
 
 		while (gioco == 1){
 			
-			Window game = new Window();
+			new Window();
 			
 			//creating, initializing and first printing of the board
 			final Board scacchiera = new Board();
-			Configuration.Initialization(scacchiera);
+			Configuration.initialization(scacchiera);
 			System.out.println(scacchiera.toString());
 			
 			while (!scacchiera.getCheckmate()){
@@ -42,8 +42,8 @@ public class Main {
 					sem = false;
 					if(scacchiera.getPedine(x, y).getColour() == turn){
 					
-						if (scacchiera.Move(scacchiera, scacchiera.getPedine(x, y), newX, newY)){
-							turn = (turn == Colour.Bianco) ? Colour.Nero : Colour.Bianco;
+						if (scacchiera.move(scacchiera, scacchiera.getPedine(x, y), newX, newY)){
+							turn = (turn == Colour.bianco) ? Colour.nero : Colour.bianco;
 							MyFrame.generateBoard(scacchiera);
 							
 						}

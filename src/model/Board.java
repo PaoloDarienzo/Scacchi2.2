@@ -24,15 +24,15 @@ public class Board {
 	 * If true, the game is over
 	 */
 	private boolean checkmate;
-	//creating 2 lists for all the pieces; Neri=black, Bianchi=White
+	//creating 2 lists for all the pieces; neri=black, bianchi=White
 	/**
 	 * ArrayList that contains all black pieces
 	 */
-	public ArrayList<Pedine> Neri;
+	public ArrayList<Pedine> neri;
 	/**
 	 * ArrayList that contains all white pieces
 	 */
-	public ArrayList<Pedine> Bianchi;
+	public ArrayList<Pedine> bianchi;
 	
 	/**
 	 * Constructor of the board.
@@ -44,17 +44,18 @@ public class Board {
 		this.board = new Pedine [8][8];
 		this.check = new boolean[2];
 		this.checkmate = false;
-		this.Neri = new ArrayList<Pedine>();
-		this.Bianchi = new ArrayList<Pedine>();
+		this.neri = new ArrayList<Pedine>();
+		this.bianchi = new ArrayList<Pedine>();
 		
 	}
 	
+	//TODO
 	/**
 	 * @return Return the matrix
-	 */
+	 *//*
 	public Pedine[][] getBoard(){
 		return this.board;
-	}
+	}*/
 	
 	/**
 	 * @param x Coordinate x
@@ -62,7 +63,7 @@ public class Board {
 	 * @param pezzo Type of piece
 	 * @param colore Colour of pedine
 	 */
-	public void setBoard(int x, int y, Piece pezzo, Colour colore) {
+	public final void setBoard(int x, int y, Piece pezzo, Colour colore) {
 		
 		//initialize a new board
 		switch(pezzo){
@@ -132,7 +133,7 @@ public class Board {
 	 * @param y Coordinate y
 	 * @return Return the pedine in position[x][y]
 	 */
-	public Pedine getPedine(int x, int y){
+	public final Pedine getPedine(int x, int y){
 		return this.board[x][y];
 	}
 	
@@ -142,7 +143,7 @@ public class Board {
 	 * @param newX New coordinate x of the pedine
 	 * @param newY new coordinate y of the pedine
 	 */
-	public void setPedine(Pedine pedina, int newX, int newY){
+	public final void setPedine(Pedine pedina, int newX, int newY){
 
 		int x = pedina.getX();
 		int y = pedina.getY();
@@ -150,10 +151,10 @@ public class Board {
 		
 		//Removing captured pedine from the right list
 		if (board[newX][newY].getPiece() != Piece.V){
-			if (colorePedina == Colour.Bianco)
-				this.Bianchi.remove(board[newX][newY]);
+			if (colorePedina == Colour.bianco)
+				this.bianchi.remove(board[newX][newY]);
 			else
-				this.Neri.remove(board[newX][newY]);
+				this.neri.remove(board[newX][newY]);
 		}
 		
 		//no need to check the color; the only pawn
@@ -175,54 +176,54 @@ public class Board {
 				
 				switch (scelta.toUpperCase()){ //I transpose all the letters of the string in uppercase to match every input
 				case("REGINA"):
-					if (colorePedina == Colour.Bianco){
+					if (colorePedina == Colour.bianco){
 						setBoard(newX, newY, Piece.q, colorePedina);
-						this.Bianchi.add(this.getPedine(newX, newY));
-						this.Bianchi.remove(pedina);
+						this.bianchi.add(this.getPedine(newX, newY));
+						this.bianchi.remove(pedina);
 					}
 					else{
 						setBoard(newX, newY, Piece.Q, colorePedina);
-						this.Neri.add(this.getPedine(newX, newY));
-						this.Neri.remove(pedina);
+						this.neri.add(this.getPedine(newX, newY));
+						this.neri.remove(pedina);
 					}
 					scelto=true;
 					break;
 				case("TORRE"):
-					if (colorePedina == Colour.Bianco){
+					if (colorePedina == Colour.bianco){
 						setBoard(newX, newY, Piece.t, colorePedina);
-						this.Bianchi.add(this.getPedine(newX, newY));
-						this.Bianchi.remove(pedina);
+						this.bianchi.add(this.getPedine(newX, newY));
+						this.bianchi.remove(pedina);
 					}
 					else{
 						setBoard(newX, newY, Piece.T, colorePedina);
-						this.Neri.add(this.getPedine(newX, newY));
-						this.Neri.remove(pedina);
+						this.neri.add(this.getPedine(newX, newY));
+						this.neri.remove(pedina);
 					}
 					scelto=true;
 					break;
 				case("ALFIERE"):
-					if (colorePedina == Colour.Bianco){
+					if (colorePedina == Colour.bianco){
 						setBoard(newX, newY, Piece.a, colorePedina);
-						this.Bianchi.add(this.getPedine(newX, newY));
-						this.Bianchi.remove(pedina);
+						this.bianchi.add(this.getPedine(newX, newY));
+						this.bianchi.remove(pedina);
 					}
 					else{
 						setBoard(newX, newY, Piece.A, colorePedina);
-						this.Neri.add(this.getPedine(newX, newY));
-						this.Neri.remove(pedina);
+						this.neri.add(this.getPedine(newX, newY));
+						this.neri.remove(pedina);
 					}
 					scelto=true;
 					break;
 				case("CAVALLO"):
-					if (colorePedina == Colour.Bianco){
+					if (colorePedina == Colour.bianco){
 						setBoard(newX, newY, Piece.c, colorePedina);
-						this.Bianchi.add(this.getPedine(newX, newY));
-						this.Bianchi.remove(pedina);
+						this.bianchi.add(this.getPedine(newX, newY));
+						this.bianchi.remove(pedina);
 					}
 					else{
 						setBoard(newX, newY, Piece.C, colorePedina);
-						this.Neri.add(this.getPedine(newX, newY));
-						this.Neri.remove(pedina);
+						this.neri.add(this.getPedine(newX, newY));
+						this.neri.remove(pedina);
 					}
 					scelto=true;
 					break;
@@ -257,12 +258,12 @@ public class Board {
 	 * @param newY Coordinate y where the pedine has to be moved
 	 * @return Returns if the move was done or not
 	 */
-	public boolean Move(Board scacchiera, Pedine pedinaMossa, int newX, int newY){
+	public final boolean move(Board scacchiera, Pedine pedinaMossa, int newX, int newY){
 		
 		boolean set = false; //Need to know if setting is done for restoring ghost boolean
 		Colour colorePedina = pedinaMossa.getColour();
 		//Restoring check variable of board. If the move isn't allowed, the turn doesn't change so the check variable is restored
-		if (colorePedina == Colour.Bianco)
+		if (colorePedina == Colour.bianco)
 			scacchiera.check[0] = false;
 		else
 			scacchiera.check[1] = false;
@@ -299,10 +300,10 @@ public class Board {
 				scacchiera.getPedine(newX, newY).setGhost(false); //restoring ghost boolean of target pedine
 			
 			//looking for checkmate
-			//First, I set the check. If check==true, I look for checkmate
+			//First, I set the check. If check=true, I look for checkmate
 			Check.setCheck(scacchiera, pedinaMossa);
 			
-			if (colorePedina == Colour.Bianco){
+			if (colorePedina == Colour.bianco){
 				if (scacchiera.check[1])
 					Check.checkmate(scacchiera, pedinaMossa, pedinaMossa.getColour()); //set the checkmate var
 			}

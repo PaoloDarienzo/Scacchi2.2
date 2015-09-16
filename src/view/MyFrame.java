@@ -24,67 +24,66 @@ public class MyFrame extends JFrame {
 	
 	/**
 	 * Auto-generated serialVersionUID
-	 */
-	private static final long serialVersionUID = 2339646745849754800L;
+	 *///TODO
+	//private static final long serialVersionUID = 2339646745849754800L;
 	private static JPanel panel;
 	private static JButton ButtonMatrix[][] = new JButton[8][8];
 	private static final int DEFAULT_WIDTH = 600;
 	private static final int DEFAULT_HEIGHT = 400;
 	
-	private static Image icon = null;
 	/**
 	 * Loading white bishop image
 	 */
-	private static Image AlfiereB = new ImageIcon("images/AlfiereB.gif").getImage();
+	private static Image alfiereB = new ImageIcon("images/AlfiereB.gif").getImage();
 	/**
 	 * Loading black bishop image
 	 */
-	private static Image AlfiereN = new ImageIcon("images/AlfiereN.gif").getImage();
+	private static Image alfiereN = new ImageIcon("images/AlfiereN.gif").getImage();
 	/**
 	 * Loading white knight image
 	 */
-	private static Image CavalloB = new ImageIcon("images/CavalloB.gif").getImage();
+	private static Image cavalloB = new ImageIcon("images/CavalloB.gif").getImage();
 	/**
 	 * Loading black knight image
 	 */
-	private static Image CavalloN = new ImageIcon("images/CavalloN.gif").getImage();
+	private static Image cavalloN = new ImageIcon("images/CavalloN.gif").getImage();
 	/**
 	 * Loading white king image
 	 */
-	private static Image KingB = new ImageIcon("images/KingB.gif").getImage();
+	private static Image kingB = new ImageIcon("images/KingB.gif").getImage();
 	/**
 	 * Loading black king image
 	 */
-	private static Image KingN = new ImageIcon("images/KingN.gif").getImage();
+	private static Image kingN = new ImageIcon("images/KingN.gif").getImage();
 	/**
 	 * Loading white pawn image
 	 */
-	private static Image PedoneB = new ImageIcon("images/PedoneB.gif").getImage();
+	private static Image pedoneB = new ImageIcon("images/PedoneB.gif").getImage();
 	/**
 	 * Loading black pawn image
 	 */
-	private static Image PedoneN = new ImageIcon("images/PedoneN.gif").getImage();
+	private static Image pedoneN = new ImageIcon("images/PedoneN.gif").getImage();
 	/**
 	 * Loading white queen image
 	 */
-	private static Image QueenB = new ImageIcon("images/QueenB.gif").getImage();
+	private static Image queenB = new ImageIcon("images/QueenB.gif").getImage();
 	/**
 	 * Loading black queen image
 	 */
-	private static Image QueenN = new ImageIcon("images/QueenN.gif").getImage();
+	private static Image queenN = new ImageIcon("images/QueenN.gif").getImage();
 	/**
 	 * Loading white rook image
 	 */
-	private static Image TorreB = new ImageIcon("images/TorreB.gif").getImage();
+	private static Image torreB = new ImageIcon("images/TorreB.gif").getImage();
 	/**
 	 * Loading black rook image
 	 */
-	private static Image TorreN = new ImageIcon("images/TorreN.gif").getImage();
+	private static Image torreN = new ImageIcon("images/TorreN.gif").getImage();
 	
 	public MyFrame(){
 		
 		//Setting the window icon
-		icon = new ImageIcon("images/Chessboard.gif").getImage();
+		Image icon = new ImageIcon("images/Chessboard.gif").getImage();
 		setIconImage(icon);
 		
 		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
@@ -109,9 +108,9 @@ public class MyFrame extends JFrame {
 
 				bottone.addActionListener(new ActionListener() {
 
-		            public void actionPerformed(ActionEvent e) {
+		            public final void actionPerformed(ActionEvent e) {
 		            	
-		            	if (Main.FirstClick){
+		            	if (Main.firstClick){
 		            		Main.x = bottone.getbX();
 		            		Main.y = bottone.getbY();
 		            	}
@@ -121,7 +120,7 @@ public class MyFrame extends JFrame {
 		            		Main.sem = true;
 		            	}
 		            	
-		            	Main.FirstClick = !Main.FirstClick;		            	
+		            	Main.firstClick = !Main.firstClick;		            	
 		            	
 		            }
 		         });
@@ -130,39 +129,39 @@ public class MyFrame extends JFrame {
 		}
 		
 		//Black pedines
-		ButtonMatrix[0][0].setIcon(new ImageIcon(TorreN));
-		ButtonMatrix[0][7].setIcon(new ImageIcon(TorreN));
+		ButtonMatrix[0][0].setIcon(new ImageIcon(torreN));
+		ButtonMatrix[0][7].setIcon(new ImageIcon(torreN));
 		
-		ButtonMatrix[0][1].setIcon(new ImageIcon(CavalloN));
-		ButtonMatrix[0][6].setIcon(new ImageIcon(CavalloN));
+		ButtonMatrix[0][1].setIcon(new ImageIcon(cavalloN));
+		ButtonMatrix[0][6].setIcon(new ImageIcon(cavalloN));
 		
-		ButtonMatrix[0][2].setIcon(new ImageIcon(AlfiereN));
-		ButtonMatrix[0][5].setIcon(new ImageIcon(AlfiereN));
+		ButtonMatrix[0][2].setIcon(new ImageIcon(alfiereN));
+		ButtonMatrix[0][5].setIcon(new ImageIcon(alfiereN));
 		
-		ButtonMatrix[0][3].setIcon(new ImageIcon(QueenN));
+		ButtonMatrix[0][3].setIcon(new ImageIcon(queenN));
 		
-		ButtonMatrix[0][4].setIcon(new ImageIcon(KingN));
+		ButtonMatrix[0][4].setIcon(new ImageIcon(kingN));
 		
 		for (int i=0; i<8; i++){
-			ButtonMatrix[1][i].setIcon(new ImageIcon(PedoneN));
+			ButtonMatrix[1][i].setIcon(new ImageIcon(pedoneN));
 		}
 		
 		//White pedines
-		ButtonMatrix[7][0].setIcon(new ImageIcon(TorreB));
-		ButtonMatrix[7][7].setIcon(new ImageIcon(TorreB));
+		ButtonMatrix[7][0].setIcon(new ImageIcon(torreB));
+		ButtonMatrix[7][7].setIcon(new ImageIcon(torreB));
 		
-		ButtonMatrix[7][1].setIcon(new ImageIcon(CavalloB));
-		ButtonMatrix[7][6].setIcon(new ImageIcon(CavalloB));
+		ButtonMatrix[7][1].setIcon(new ImageIcon(cavalloB));
+		ButtonMatrix[7][6].setIcon(new ImageIcon(cavalloB));
 		
-		ButtonMatrix[7][2].setIcon(new ImageIcon(AlfiereB));
-		ButtonMatrix[7][5].setIcon(new ImageIcon(AlfiereB));
+		ButtonMatrix[7][2].setIcon(new ImageIcon(alfiereB));
+		ButtonMatrix[7][5].setIcon(new ImageIcon(alfiereB));
 		
-		ButtonMatrix[7][3].setIcon(new ImageIcon(QueenB));
+		ButtonMatrix[7][3].setIcon(new ImageIcon(queenB));
 
-		ButtonMatrix[7][4].setIcon(new ImageIcon(KingB));
+		ButtonMatrix[7][4].setIcon(new ImageIcon(kingB));
 		
 		for (int i=0; i<8; i++){
-			ButtonMatrix[6][i].setIcon(new ImageIcon(PedoneB));
+			ButtonMatrix[6][i].setIcon(new ImageIcon(pedoneB));
 		}
 		
 		add(panel, BorderLayout.CENTER);
@@ -196,9 +195,9 @@ public class MyFrame extends JFrame {
 				//Adding the actionListener to the button
 				bottone.addActionListener(new ActionListener() {
 
-					public void actionPerformed(ActionEvent e) {
+					public final void actionPerformed(ActionEvent e) {
 			            	
-						if (Main.FirstClick){
+						if (Main.firstClick){
 			            	Main.x = bottone.getbX();
 			            	Main.y = bottone.getbY();
 			            }
@@ -209,7 +208,7 @@ public class MyFrame extends JFrame {
 			            }
 			            	
 			            //Setting the first click boolean
-			            Main.FirstClick = !Main.FirstClick;		            	
+			            Main.firstClick = !Main.firstClick;		            	
 			            	
 			         }
 				});
@@ -219,45 +218,44 @@ public class MyFrame extends JFrame {
 	            //Assigning the right icon on the button
 	            switch(pezzo){
 	        	case P:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(PedoneN));
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(pedoneN));
 	        		break;
 	        	case p:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(PedoneB));
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(pedoneB));
 	        		break;
 	        	case C:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(CavalloN));
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(cavalloN));
 	        		break;
 	        	case c:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(CavalloB));
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(cavalloB));
 	        		break;
 	        	case A:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(AlfiereN));
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(alfiereN));
 	        		break;
 	        	case a:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(AlfiereB));
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(alfiereB));
 	        		break;
 	        	case Q:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(QueenN));
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(queenN));
 	        		break;
 	        	case q:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(QueenB));
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(queenB));
 	        		break;
 	        	case K:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(KingN));
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(kingN));
 	        		break;
 	        	case k:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(KingB));
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(kingB));
 	        		break;
 	        	case T:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(TorreN));
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(torreN));
 	        		break;
 	        	case t:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(TorreB));
+	        		ButtonMatrix[i][j].setIcon(new ImageIcon(torreB));
 	        		break;
 	        	case V:
 	        		break;
-	            }
-	                
+	            }     
             }
         }
 	//Validating everything on the panel so it can be desplayed

@@ -9,14 +9,14 @@ public enum Colour {
 	/**
 	 * White colour
 	 */
-	Bianco,
+	bianco,
 	/**
 	 * Black colour
 	 */
-	Nero,
+	nero,
 	/**
 	 * Neuter colour
 	 */
-	Neutro
+	neutro
 
 }

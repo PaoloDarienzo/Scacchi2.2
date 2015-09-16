@@ -50,28 +50,28 @@ public class Pedine {
 	/**
 	 * @param newX New value of x
 	 */
-	public void setX(int newX){
+	public final void setX(int newX){
 		this.x = newX;
 	}
 	
 	/**
 	 * @param newY New value of y
 	 */
-	public void setY(int newY){
+	public final void setY(int newY){
 		this.y = newY;
 	}
 	
 	/**
 	 * @return Return coordinate x
 	 */
-	public int getX(){
+	public final int getX(){
 		return this.x;
 	}
 	
 	/**
 	 * @return Return coordinate y
 	 */
-	public int getY(){
+	public final int getY(){
 		return this.y;
 	}
 	
@@ -85,7 +85,7 @@ public class Pedine {
 	/**
 	 * @return Return piece type
 	 */
-	public Piece getPiece(){
+	public final Piece getPiece(){
 		return this.pezzo;
 	}
 	
@@ -99,21 +99,21 @@ public class Pedine {
 	/**
 	 * @return Return the pedine's colour
 	 */
-	public Colour getColour(){
+	public final Colour getColour(){
 		return this.colore;
 	}
 	
 	/**
 	 * @param status New status of pedine's ghost parameter
 	 */
-	public void setGhost(boolean status){
+	public final void setGhost(boolean status){
 		this.ghost = status;
 	}
 	
 	/**
 	 * @return Return the status of pedine's ghost parameter
 	 */
-	public boolean getGhost(){
+	public final boolean getGhost(){
 		return this.ghost;
 	}
 

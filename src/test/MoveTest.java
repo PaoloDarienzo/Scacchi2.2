@@ -16,7 +16,7 @@ public class MoveTest {
 	 * Testing the movements of the knights.
 	 */
 	@Test
-	public void Knight() {
+	public void knight() {
 		/* Testing a set of 3 moves on Black and White knights:
 		* Moving Black knight:
 		* 0,1 to 2,2
@@ -33,17 +33,17 @@ public class MoveTest {
 		
 		Board scacchiera1 = new Board();
 		Board scacchiera2 = new Board();
-		Configuration.Initialization(scacchiera1);
-		InitTest.Knight(scacchiera2);
+		Configuration.initialization(scacchiera1);
+		InitTest.knight(scacchiera2);
 		
 		//black
-		scacchiera1.Move(scacchiera1, scacchiera1.getPedine(0, 1), 2, 2);
-		scacchiera1.Move(scacchiera1, scacchiera1.getPedine(2, 2), 4, 1);
-		scacchiera1.Move(scacchiera1, scacchiera1.getPedine(4, 1), 6, 0);
+		scacchiera1.move(scacchiera1, scacchiera1.getPedine(0, 1), 2, 2);
+		scacchiera1.move(scacchiera1, scacchiera1.getPedine(2, 2), 4, 1);
+		scacchiera1.move(scacchiera1, scacchiera1.getPedine(4, 1), 6, 0);
 		//white
-		scacchiera1.Move(scacchiera1, scacchiera1.getPedine(7, 1), 5, 2);
-		scacchiera1.Move(scacchiera1, scacchiera1.getPedine(5, 2), 4, 4);
-		scacchiera1.Move(scacchiera1, scacchiera1.getPedine(4, 4), 5, 6);
+		scacchiera1.move(scacchiera1, scacchiera1.getPedine(7, 1), 5, 2);
+		scacchiera1.move(scacchiera1, scacchiera1.getPedine(5, 2), 4, 4);
+		scacchiera1.move(scacchiera1, scacchiera1.getPedine(4, 4), 5, 6);
 		
 		//Checking x, y, piece type and colour of black knight
 		assertEquals(scacchiera2.getPedine(6, 0).getX(), scacchiera1.getPedine(6, 0).getX());
@@ -75,7 +75,7 @@ public class MoveTest {
 	 * Testing the movements of the queens.
 	 */
 	@Test
-	public void Queen(){
+	public void queen(){
 		/* The Queen uses both rook and bishop movement.
 		* I free the road of the queens,
 		* then I move both queens forward one square, diagonally three squares,
@@ -97,19 +97,19 @@ public class MoveTest {
 		
 		Board scacchiera1 = new Board();
 		Board scacchiera2 = new Board();
-		Configuration.Initialization(scacchiera1);
-		InitTest.Queen(scacchiera2);
+		Configuration.initialization(scacchiera1);
+		InitTest.queen(scacchiera2);
 		
 		//black
-		scacchiera1.Move(scacchiera1, scacchiera1.getPedine(1, 3), 2, 3);
-		scacchiera1.Move(scacchiera1, scacchiera1.getPedine(0, 3), 1, 3);
-		scacchiera1.Move(scacchiera1, scacchiera1.getPedine(1, 3), 4, 6);
-		scacchiera1.Move(scacchiera1, scacchiera1.getPedine(4, 6), 2, 6);
+		scacchiera1.move(scacchiera1, scacchiera1.getPedine(1, 3), 2, 3);
+		scacchiera1.move(scacchiera1, scacchiera1.getPedine(0, 3), 1, 3);
+		scacchiera1.move(scacchiera1, scacchiera1.getPedine(1, 3), 4, 6);
+		scacchiera1.move(scacchiera1, scacchiera1.getPedine(4, 6), 2, 6);
 		//white
-		scacchiera1.Move(scacchiera1, scacchiera1.getPedine(6, 3), 5, 3);
-		scacchiera1.Move(scacchiera1, scacchiera1.getPedine(7, 3), 6, 3);
-		scacchiera1.Move(scacchiera1, scacchiera1.getPedine(6, 3), 3, 0);
-		scacchiera1.Move(scacchiera1, scacchiera1.getPedine(3, 0), 5, 0);
+		scacchiera1.move(scacchiera1, scacchiera1.getPedine(6, 3), 5, 3);
+		scacchiera1.move(scacchiera1, scacchiera1.getPedine(7, 3), 6, 3);
+		scacchiera1.move(scacchiera1, scacchiera1.getPedine(6, 3), 3, 0);
+		scacchiera1.move(scacchiera1, scacchiera1.getPedine(3, 0), 5, 0);
 		
 		//Checking x, y, piece type and colour of black queen
 		assertEquals(scacchiera2.getPedine(2, 6).getX(), scacchiera1.getPedine(2, 6).getX());

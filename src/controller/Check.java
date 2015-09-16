@@ -26,26 +26,26 @@ public class Check {
 	 */
 	public static boolean selectCheck (Board scacchiera, Pedine pedina, int newX, int newY){
 		
-		//call the properly function depending on which pedine is moved		
+		//call the properly function depending on which pedine is moved
 		switch(pedina.getPiece()){
 		case P:
 		case p:
-			return Pawn(scacchiera, pedina, newX, newY);
+			return pawn(scacchiera, pedina, newX, newY);
 		case C:
 		case c:
-			return Knight(scacchiera, pedina, newX, newY);
+			return knight(scacchiera, pedina, newX, newY);
 		case A:
 		case a:
-			return Bishop(scacchiera, pedina, newX, newY);
+			return bishop(scacchiera, pedina, newX, newY);
 		case Q:
 		case q:
-			return Queen(scacchiera, pedina, newX, newY);
+			return queen(scacchiera, pedina, newX, newY);
 		case K:
 		case k:
-			return King(scacchiera, pedina, newX, newY);
+			return king(scacchiera, pedina, newX, newY);
 		case T:
 		case t:
-			return Rook(scacchiera, pedina, newX, newY);
+			return rook(scacchiera, pedina, newX, newY);
 		case V:
 			//through GUI is impossible to select a Void pedine: never occurs.
 			System.out.println("Errore: la casella che hai selezionato e' vuota.");
@@ -63,22 +63,22 @@ public class Check {
 	 * @param newY New coordinate y of the pedine
 	 * @return Return if the movement of that pawn is allowed
 	 */
-	public static boolean Pawn(Board scacchiera, Pedine pawn, int newX, int newY){
+	public static boolean pawn(Board scacchiera, Pedine pawn, int newX, int newY){
 		
 		int x = pawn.getX();
 		int y = pawn.getY();
 		Colour colore = pawn.getColour();
 		Pedine altraPedina = scacchiera.getPedine(newX, newY);
 
-		if ( (colore == Colour.Bianco && newX == x - 1) //if white can only go up
-			|| (colore == Colour.Nero && newX == x + 1)) //if black can only go down
+		if ( (colore == Colour.bianco && newX == x - 1) //if white can only go up
+			|| (colore == Colour.nero && newX == x + 1)) //if black can only go down
 		{
 			if ( newY == y && (altraPedina.getPiece() == Piece.V || altraPedina.getGhost() == true) )//if ghost=true I ignore that pedine
 				//if front box is free and i'm moving there
 				return true;
 			//diagonal pedines cannot be ghosts
-			else if	( (colore == Colour.Bianco && (newX == x - 1 && (newY == y + 1 || newY == y - 1)) && altraPedina.getColour() == Colour.Nero)
-					|| (colore == Colour.Nero && (newX == x + 1 && (newY == y + 1 || newY == y - 1)) && altraPedina.getColour() == Colour.Bianco) )//if new coord is diagonal, then there must be opposite color
+			else if	( (colore == Colour.bianco && (newX == x - 1 && (newY == y + 1 || newY == y - 1)) && altraPedina.getColour() == Colour.nero)
+					|| (colore == Colour.nero && (newX == x + 1 && (newY == y + 1 || newY == y - 1)) && altraPedina.getColour() == Colour.bianco) )//if new coord is diagonal, then there must be opposite color
 				return true; //can capture
 		}
 		return false;
@@ -92,7 +92,7 @@ public class Check {
 	 * @param newY New coordinate y of the pedine
 	 * @return Return if the movement of that king is allowed
 	 */
-	public static boolean King(Board scacchiera, Pedine king, int newX, int newY) {
+	public static boolean king(Board scacchiera, Pedine king, int newX, int newY) {
 		
 		int x = king.getX();
 		int y = king.getY();
@@ -119,7 +119,7 @@ public class Check {
 	 * @param newY New coordinate y of the pedine
 	 * @return Return if the movement of that bishop is allowed
 	 */
-	public static boolean Bishop(Board scacchiera, Pedine bishop, int newX, int newY) {
+	public static boolean bishop(Board scacchiera, Pedine bishop, int newX, int newY) {
 
 		int x = bishop.getX();
 		int y = bishop.getY();
@@ -181,7 +181,7 @@ public class Check {
 	 * @param newY New coordinate y of the pedine
 	 * @return Return if the movement of that knight is allowed
 	 */
-	public static boolean Knight(Board scacchiera, Pedine knight, int newX, int newY){
+	public static boolean knight(Board scacchiera, Pedine knight, int newX, int newY){
 		
 		int x = knight.getX();
 		int y = knight.getY();
@@ -204,7 +204,7 @@ public class Check {
 	 * @param newY New coordinate y of the pedine
 	 * @return Return if the movement of that rook is allowed
 	 */
-	public static boolean Rook(Board scacchiera, Pedine rook, int newX, int newY) {
+	public static boolean rook(Board scacchiera, Pedine rook, int newX, int newY) {
 		
 		int x = rook.getX();
 		int y = rook.getY();
@@ -254,10 +254,10 @@ public class Check {
 	 * @param newY New coordinate y of the pedine
 	 * @return Return if the movement of that queen is allowed
 	 */
-	public static boolean Queen(Board scacchiera, Pedine queen, int newX, int newY) {
+	public static boolean queen(Board scacchiera, Pedine queen, int newX, int newY) {
 		
 		//Queen moves as a rook or as a bishop
-		if (Bishop(scacchiera, queen, newX, newY) || Rook(scacchiera, queen, newX, newY) )
+		if (bishop(scacchiera, queen, newX, newY) || rook(scacchiera, queen, newX, newY) )
 			return true;
 		else
 			return false;		
@@ -281,22 +281,22 @@ public class Check {
 		boolean isKing = (pedinaMossa.getPiece() == Piece.K || pedinaMossa.getPiece() == Piece.k) ? true : false;
 		
 		//setting iterator
-		if (myColour == Colour.Bianco){
-			otherIter = scacchiera.Neri.iterator();
+		if (myColour == Colour.bianco){
+			otherIter = scacchiera.neri.iterator();
 		}
 		else {
-			otherIter = scacchiera.Bianchi.iterator();
+			otherIter = scacchiera.bianchi.iterator();
 		}
 		
 		//The king is the first of the iterator and it's always present.
 		//So, xKing and yKing will always be set
-		if (myColour == Colour.Bianco){
-			xKingM = scacchiera.Bianchi.get(0).getX();
-			yKingM = scacchiera.Bianchi.get(0).getY();
+		if (myColour == Colour.bianco){
+			xKingM = scacchiera.bianchi.get(0).getX();
+			yKingM = scacchiera.bianchi.get(0).getY();
 		}
 		else{
-			xKingM = scacchiera.Neri.get(0).getX();
-			yKingM = scacchiera.Neri.get(0).getY();
+			xKingM = scacchiera.neri.get(0).getX();
+			yKingM = scacchiera.neri.get(0).getY();
 		}
 		
 		//I check, for every opposite pedine,
@@ -324,7 +324,7 @@ public class Check {
 				}
 				else{//if I am the king, I have to check if every candidate can go on my future coordinates
 					if (pC == Piece.p || pC == Piece.P){
-						if (myColour == Colour.Bianco){//black pawn case
+						if (myColour == Colour.bianco){//black pawn case
 							if(newY-1<0){
 								if((scacchiera.getPedine(newX-1, newY+1).getPiece() == Piece.P)){//there is a pawn that can capture me if I go in the new position
 									moveAllowed = false;
@@ -395,13 +395,13 @@ public class Check {
 		int cy = candidato.getY();
 		int xKingM, yKingM;
 		
-		if (pedinaMossa.getColour() == Colour.Bianco){
-			xKingM = scacchiera.Bianchi.get(0).getX();
-			yKingM = scacchiera.Bianchi.get(0).getY();
+		if (pedinaMossa.getColour() == Colour.bianco){
+			xKingM = scacchiera.bianchi.get(0).getX();
+			yKingM = scacchiera.bianchi.get(0).getY();
 		}
 		else{
-			xKingM = scacchiera.Neri.get(0).getX();
-			yKingM = scacchiera.Neri.get(0).getY();
+			xKingM = scacchiera.neri.get(0).getX();
+			yKingM = scacchiera.neri.get(0).getY();
 		}			
 		
 		if (cx==xKingM){//Mangia in riga
@@ -467,22 +467,22 @@ public class Check {
 		int xKingO = 0, yKingO = 0;//Opposite king
 		
 		//setting iterator
-		if (myColour == Colour.Bianco){
-			mineIter = scacchiera.Bianchi.iterator();
+		if (myColour == Colour.bianco){
+			mineIter = scacchiera.bianchi.iterator();
 		}
 		else {
-			mineIter = scacchiera.Neri.iterator();
+			mineIter = scacchiera.neri.iterator();
 		}
 		
 		//The king is the first of the iterator and it's always present.
 		//So, xKing and yKing will always be set
-		if (myColour == Colour.Bianco){
-			xKingO = scacchiera.Neri.get(0).getX();
-			yKingO = scacchiera.Neri.get(0).getY();
+		if (myColour == Colour.bianco){
+			xKingO = scacchiera.neri.get(0).getX();
+			yKingO = scacchiera.neri.get(0).getY();
 		}
 		else{
-			xKingO = scacchiera.Bianchi.get(0).getX();
-			yKingO = scacchiera.Bianchi.get(0).getY();
+			xKingO = scacchiera.bianchi.get(0).getX();
+			yKingO = scacchiera.bianchi.get(0).getY();
 		}
 		
 		//I browse the list looking for someone of mine that can go on king
@@ -490,7 +490,7 @@ public class Check {
 			Pedine next = mineIter.next();
 			if (next.getPiece() != Piece.k && next.getPiece() != Piece.K){//jumping king
 				if (Check.selectCheck(scacchiera, next, xKingO, yKingO)){
-					if (myColour == Colour.Bianco){
+					if (myColour == Colour.bianco){
 						scacchiera.setCheck(1, true);
 						break;
 					}
@@ -516,19 +516,19 @@ public class Check {
 		boolean safeBox = false;//Reports if there is a safe box for the king
 		scacchiera.setCheckmate(true); //I suppose it is true, then I put it false if I find an above case.
 		
-		if (myColour == Colour.Bianco){
-			mineIter = scacchiera.Bianchi.iterator();
-			otherIter = scacchiera.Neri.iterator();
-			coloreOpposto= Colour.Nero;
-			xKingO = scacchiera.Neri.get(0).getX();
-			yKingO = scacchiera.Neri.get(0).getY();
+		if (myColour == Colour.bianco){
+			mineIter = scacchiera.bianchi.iterator();
+			otherIter = scacchiera.neri.iterator();
+			coloreOpposto= Colour.nero;
+			xKingO = scacchiera.neri.get(0).getX();
+			yKingO = scacchiera.neri.get(0).getY();
 		}
 		else {
-			mineIter = scacchiera.Neri.iterator();
-			otherIter = scacchiera.Bianchi.iterator();
-			coloreOpposto = Colour.Bianco;
-			xKingO = scacchiera.Bianchi.get(0).getX();
-			yKingO = scacchiera.Bianchi.get(0).getY();
+			mineIter = scacchiera.neri.iterator();
+			otherIter = scacchiera.bianchi.iterator();
+			coloreOpposto = Colour.bianco;
+			xKingO = scacchiera.bianchi.get(0).getX();
+			yKingO = scacchiera.bianchi.get(0).getY();
 		}
 		
 		Pedine reAvversario = scacchiera.getPedine(xKingO, yKingO);
@@ -549,7 +549,7 @@ public class Check {
 						if (candidato.getPiece() == Piece.k || candidato.getPiece() == Piece.K)
 							continue;
 						else if (candidato.getPiece() == Piece.p || candidato.getPiece() == Piece.P){
-							if (myColour == Colour.Bianco){ //black pawn case
+							if (myColour == Colour.bianco){ //black pawn case
 								if( (yKingO+j)-1 <0){
 									if((scacchiera.getPedine((xKingO+i)-1, (yKingO+j)+1).getPiece() == Piece.P)){//there is a pawn that can capture me if I go in the new position
 										safeBox = false;
@@ -651,9 +651,9 @@ public class Check {
 						
 						if (yPedina==yKingO && xPedina < xKingO){//same column, pedine OVER king
 							for (int i=1; xPedina+i < xKingO; i++){//Every box in the path
-								if(coloreOpposto==Colour.Nero){
-									for(int x=1; x < scacchiera.Neri.size(); x++){//Starting from x=1 so jumping the king
-										if (Check.selectCheck(scacchiera, scacchiera.Neri.get(x), xPedina+i, yPedina)){
+								if(coloreOpposto==Colour.nero){
+									for(int x=1; x < scacchiera.neri.size(); x++){//Starting from x=1 so jumping the king
+										if (Check.selectCheck(scacchiera, scacchiera.neri.get(x), xPedina+i, yPedina)){
 											//Or, exist an opponent candidate which can go
 											//in one of the boxes between me and his king
 											exist = true;
@@ -662,8 +662,8 @@ public class Check {
 									}
 								}
 								else{
-									for(int x=1; x < scacchiera.Bianchi.size(); x++){
-										if (Check.selectCheck(scacchiera, scacchiera.Bianchi.get(x), xPedina+i, yPedina)){
+									for(int x=1; x < scacchiera.bianchi.size(); x++){
+										if (Check.selectCheck(scacchiera, scacchiera.bianchi.get(x), xPedina+i, yPedina)){
 											//Or, exist an opponent candidate which can go
 											//in one of the boxes between me and his king
 											exist = true;
@@ -677,9 +677,9 @@ public class Check {
 						}
 						else if (yPedina==yKingO && xPedina > xKingO){//same column, pedine UNDER king
 							for (int i=1; xPedina-i < xKingO; i++){ //Every box in the path
-								if(coloreOpposto==Colour.Nero){
-									for(int x=1; x < scacchiera.Neri.size(); x++){
-										if (Check.selectCheck(scacchiera, scacchiera.Neri.get(x), xPedina-i, yPedina)){
+								if(coloreOpposto==Colour.nero){
+									for(int x=1; x < scacchiera.neri.size(); x++){
+										if (Check.selectCheck(scacchiera, scacchiera.neri.get(x), xPedina-i, yPedina)){
 											//Or, exist an opponent candidate which can go
 											//in one of the boxes between me and his king
 											exist = true;
@@ -688,8 +688,8 @@ public class Check {
 									}
 								}
 								else{
-									for(int x=1; x < scacchiera.Bianchi.size(); x++){
-										if (Check.selectCheck(scacchiera, scacchiera.Bianchi.get(x), xPedina-i, yPedina)){
+									for(int x=1; x < scacchiera.bianchi.size(); x++){
+										if (Check.selectCheck(scacchiera, scacchiera.bianchi.get(x), xPedina-i, yPedina)){
 											//Or, exist an opponent candidate which can go
 											//in one of the boxes between me and his king
 											exist = true;
@@ -703,9 +703,9 @@ public class Check {
 						}
 						else if (xPedina==xKingO && yPedina < yKingO){//same row, pedine on the LEFT of king
 							for (int i=1; yPedina+i < yKingO; i++){ //Every box in the path
-								if(coloreOpposto==Colour.Nero){
-									for(int x=1; x < scacchiera.Neri.size(); x++){
-										if (Check.selectCheck(scacchiera, scacchiera.Neri.get(x), xPedina, yPedina+i)){
+								if(coloreOpposto==Colour.nero){
+									for(int x=1; x < scacchiera.neri.size(); x++){
+										if (Check.selectCheck(scacchiera, scacchiera.neri.get(x), xPedina, yPedina+i)){
 											//Or, exist an opponent candidate which can go
 											//in one of the boxes between me and his king
 											exist = true;
@@ -714,8 +714,8 @@ public class Check {
 									}
 								}
 								else{
-									for(int x=1; x < scacchiera.Bianchi.size(); x++){
-										if (Check.selectCheck(scacchiera, scacchiera.Bianchi.get(x), xPedina, yPedina+i)){
+									for(int x=1; x < scacchiera.bianchi.size(); x++){
+										if (Check.selectCheck(scacchiera, scacchiera.bianchi.get(x), xPedina, yPedina+i)){
 											//Or, exist an opponent candidate which can go
 											//in one of the boxes between me and his king
 											exist = true;
@@ -729,9 +729,9 @@ public class Check {
 						}
 						else if (xPedina==xKingO && yPedina > yKingO){//same row, pedine to the RIGHT of the king
 							for (int i=1; yPedina-i < yKingO; i++){ //Every box in the path
-								if(coloreOpposto==Colour.Nero){
-									for(int x=1; x < scacchiera.Neri.size(); x++){
-										if (Check.selectCheck(scacchiera, scacchiera.Neri.get(x), xPedina, yPedina-i)){
+								if(coloreOpposto==Colour.nero){
+									for(int x=1; x < scacchiera.neri.size(); x++){
+										if (Check.selectCheck(scacchiera, scacchiera.neri.get(x), xPedina, yPedina-i)){
 											//Or, exist an opponent candidate which can go
 											//in one of the boxes between me and his king
 											exist = true;
@@ -740,8 +740,8 @@ public class Check {
 									}
 								}
 								else{
-									for(int x=1; x < scacchiera.Bianchi.size(); x++){
-										if (Check.selectCheck(scacchiera, scacchiera.Bianchi.get(x), xPedina, yPedina-i)){
+									for(int x=1; x < scacchiera.bianchi.size(); x++){
+										if (Check.selectCheck(scacchiera, scacchiera.bianchi.get(x), xPedina, yPedina-i)){
 											//Or, exist an opponent candidate which can go
 											//in one of the boxes between me and his king
 											exist = true;
@@ -765,9 +765,9 @@ public class Check {
 						
 						if ((xPedina<xKingO) && (yPedina>yKingO)){//pedine in the UPPER RIGHT of the king
 							for (int i=1; xPedina+i < xKingO && yPedina-i > yKingO; i++){ //Every box in the path
-								if(coloreOpposto==Colour.Nero){
-									for(int x=1; x < scacchiera.Neri.size(); x++){
-										if (Check.selectCheck(scacchiera, scacchiera.Neri.get(x), xPedina+i, yPedina-i)){
+								if(coloreOpposto==Colour.nero){
+									for(int x=1; x < scacchiera.neri.size(); x++){
+										if (Check.selectCheck(scacchiera, scacchiera.neri.get(x), xPedina+i, yPedina-i)){
 											//Or, exist an opponent candidate which can go
 											//in one of the boxes between me and his king
 											exist = true;
@@ -776,8 +776,8 @@ public class Check {
 									}
 								}
 								else{
-									for(int x=1; x < scacchiera.Bianchi.size(); x++){
-										if (Check.selectCheck(scacchiera, scacchiera.Bianchi.get(x), xPedina+i, yPedina-i)){
+									for(int x=1; x < scacchiera.bianchi.size(); x++){
+										if (Check.selectCheck(scacchiera, scacchiera.bianchi.get(x), xPedina+i, yPedina-i)){
 											//Or, exist an opponent candidate which can go
 											//in one of the boxes between me and his king
 											exist = true;
@@ -791,9 +791,9 @@ public class Check {
 						}
 						else if((xPedina<xKingO) && (yPedina<yKingO)){//pedine in the UPPER LEFT of the king
 							for (int i=1; xPedina+i < xKingO && yPedina+i < yKingO; i++){ //Every box in the path
-								if(coloreOpposto==Colour.Nero){
-									for(int x=1; x < scacchiera.Neri.size(); x++){
-										if (Check.selectCheck(scacchiera, scacchiera.Neri.get(x), xPedina+i, yPedina+i)){
+								if(coloreOpposto==Colour.nero){
+									for(int x=1; x < scacchiera.neri.size(); x++){
+										if (Check.selectCheck(scacchiera, scacchiera.neri.get(x), xPedina+i, yPedina+i)){
 											//Or, exist an opponent candidate which can go
 											//in one of the boxes between me and his king
 											exist = true;
@@ -802,8 +802,8 @@ public class Check {
 									}
 								}
 								else{
-									for(int x=1; x < scacchiera.Bianchi.size(); x++){
-										if (Check.selectCheck(scacchiera, scacchiera.Bianchi.get(x), xPedina+i, yPedina+i)){
+									for(int x=1; x < scacchiera.bianchi.size(); x++){
+										if (Check.selectCheck(scacchiera, scacchiera.bianchi.get(x), xPedina+i, yPedina+i)){
 											//Or, exist an opponent candidate which can go
 											//in one of the boxes between me and his king
 											exist = true;
@@ -817,9 +817,9 @@ public class Check {
 						}
 						else if((xPedina>xKingO) && (yPedina>yKingO)){//pedine in LOWER RIGHT of the king
 							for (int i=1; xPedina-i > xKingO && yPedina-i > yKingO; i++){ //Every box in the path
-								if(coloreOpposto==Colour.Nero){
-									for(int x=1; x < scacchiera.Neri.size(); x++){
-										if (Check.selectCheck(scacchiera, scacchiera.Neri.get(x), xPedina+i, yPedina-i)){
+								if(coloreOpposto==Colour.nero){
+									for(int x=1; x < scacchiera.neri.size(); x++){
+										if (Check.selectCheck(scacchiera, scacchiera.neri.get(x), xPedina+i, yPedina-i)){
 											//Or, exist an opponent candidate which can go
 											//in one of the boxes between me and his king
 											exist = true;
@@ -828,8 +828,8 @@ public class Check {
 									}
 								}
 								else{
-									for(int x=1; x < scacchiera.Bianchi.size(); x++){
-										if (Check.selectCheck(scacchiera, scacchiera.Bianchi.get(x), xPedina+i, yPedina-i)){
+									for(int x=1; x < scacchiera.bianchi.size(); x++){
+										if (Check.selectCheck(scacchiera, scacchiera.bianchi.get(x), xPedina+i, yPedina-i)){
 											//Or, exist an opponent candidate which can go
 											//in one of the boxes between me and his king
 											exist = true;
@@ -843,9 +843,9 @@ public class Check {
 						}
 						else if((xPedina>xKingO) && (yPedina<yKingO)){//pedine in LOWER LEFT of the king
 							for (int i=1; xPedina-i > xKingO && yPedina+i < yKingO; i++){ //Every box in the path
-								if(coloreOpposto==Colour.Nero){
-									for(int x=1; x < scacchiera.Neri.size(); x++){
-										if (Check.selectCheck(scacchiera, scacchiera.Neri.get(x), xPedina-i, yPedina+i)){
+								if(coloreOpposto==Colour.nero){
+									for(int x=1; x < scacchiera.neri.size(); x++){
+										if (Check.selectCheck(scacchiera, scacchiera.neri.get(x), xPedina-i, yPedina+i)){
 											//Or, exist an opponent candidate which can go
 											//in one of the boxes between me and his king
 											exist = true;
@@ -854,8 +854,8 @@ public class Check {
 									}
 								}
 								else{
-									for(int x=1; x < scacchiera.Bianchi.size(); x++){
-										if (Check.selectCheck(scacchiera, scacchiera.Bianchi.get(x), xPedina-i, yPedina+i)){
+									for(int x=1; x < scacchiera.bianchi.size(); x++){
+										if (Check.selectCheck(scacchiera, scacchiera.bianchi.get(x), xPedina-i, yPedina+i)){
 											//Or, exist an opponent candidate which can go
 											//in one of the boxes between me and his king
 											exist = true;
