@@ -27,7 +27,7 @@ public class MyFrame extends JFrame {
 	 */
 	private static final long serialVersionUID = 2339646745849754800L;
 	private static JPanel panel;
-	private static JButton ButtonMatrix[][] = new JButton[8][8];
+	private static JButton buttonMatrix[][] = new JButton[8][8];
 	private static final int DEFAULT_WIDTH = 600;
 	private static final int DEFAULT_HEIGHT = 400;
 	
@@ -97,7 +97,7 @@ public class MyFrame extends JFrame {
 				
 				final MyButton bottone = new MyButton(i, j);
 				
-				ButtonMatrix[i][j]= bottone;
+				buttonMatrix[i][j]= bottone;
 				
 				if ((i+j)%2 == 0)
 					bottone.setBackground(Color.WHITE);
@@ -129,39 +129,39 @@ public class MyFrame extends JFrame {
 		}
 		
 		//Black pedines
-		ButtonMatrix[0][0].setIcon(new ImageIcon(torreN));
-		ButtonMatrix[0][7].setIcon(new ImageIcon(torreN));
+		buttonMatrix[0][0].setIcon(new ImageIcon(torreN));
+		buttonMatrix[0][7].setIcon(new ImageIcon(torreN));
 		
-		ButtonMatrix[0][1].setIcon(new ImageIcon(cavalloN));
-		ButtonMatrix[0][6].setIcon(new ImageIcon(cavalloN));
+		buttonMatrix[0][1].setIcon(new ImageIcon(cavalloN));
+		buttonMatrix[0][6].setIcon(new ImageIcon(cavalloN));
 		
-		ButtonMatrix[0][2].setIcon(new ImageIcon(alfiereN));
-		ButtonMatrix[0][5].setIcon(new ImageIcon(alfiereN));
+		buttonMatrix[0][2].setIcon(new ImageIcon(alfiereN));
+		buttonMatrix[0][5].setIcon(new ImageIcon(alfiereN));
 		
-		ButtonMatrix[0][3].setIcon(new ImageIcon(queenN));
+		buttonMatrix[0][3].setIcon(new ImageIcon(queenN));
 		
-		ButtonMatrix[0][4].setIcon(new ImageIcon(kingN));
+		buttonMatrix[0][4].setIcon(new ImageIcon(kingN));
 		
 		for (int i=0; i<8; i++){
-			ButtonMatrix[1][i].setIcon(new ImageIcon(pedoneN));
+			buttonMatrix[1][i].setIcon(new ImageIcon(pedoneN));
 		}
 		
 		//White pedines
-		ButtonMatrix[7][0].setIcon(new ImageIcon(torreB));
-		ButtonMatrix[7][7].setIcon(new ImageIcon(torreB));
+		buttonMatrix[7][0].setIcon(new ImageIcon(torreB));
+		buttonMatrix[7][7].setIcon(new ImageIcon(torreB));
 		
-		ButtonMatrix[7][1].setIcon(new ImageIcon(cavalloB));
-		ButtonMatrix[7][6].setIcon(new ImageIcon(cavalloB));
+		buttonMatrix[7][1].setIcon(new ImageIcon(cavalloB));
+		buttonMatrix[7][6].setIcon(new ImageIcon(cavalloB));
 		
-		ButtonMatrix[7][2].setIcon(new ImageIcon(alfiereB));
-		ButtonMatrix[7][5].setIcon(new ImageIcon(alfiereB));
+		buttonMatrix[7][2].setIcon(new ImageIcon(alfiereB));
+		buttonMatrix[7][5].setIcon(new ImageIcon(alfiereB));
 		
-		ButtonMatrix[7][3].setIcon(new ImageIcon(queenB));
+		buttonMatrix[7][3].setIcon(new ImageIcon(queenB));
 
-		ButtonMatrix[7][4].setIcon(new ImageIcon(kingB));
+		buttonMatrix[7][4].setIcon(new ImageIcon(kingB));
 		
 		for (int i=0; i<8; i++){
-			ButtonMatrix[6][i].setIcon(new ImageIcon(pedoneB));
+			buttonMatrix[6][i].setIcon(new ImageIcon(pedoneB));
 		}
 		
 		add(panel, BorderLayout.CENTER);
@@ -182,7 +182,7 @@ public class MyFrame extends JFrame {
             	
             	final MyButton bottone = new MyButton(i, j); //Creating the button
 				
-				ButtonMatrix[i][j]= bottone; //Adding the button in the matrix
+				buttonMatrix[i][j]= bottone; //Adding the button in the matrix
 					
 				//Setting background colour of button
 				if ((i+j)%2 == 0)
@@ -218,40 +218,40 @@ public class MyFrame extends JFrame {
 	            //Assigning the right icon on the button
 	            switch(pezzo){
 	        	case P:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(pedoneN));
+	        		buttonMatrix[i][j].setIcon(new ImageIcon(pedoneN));
 	        		break;
 	        	case p:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(pedoneB));
+	        		buttonMatrix[i][j].setIcon(new ImageIcon(pedoneB));
 	        		break;
 	        	case C:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(cavalloN));
+	        		buttonMatrix[i][j].setIcon(new ImageIcon(cavalloN));
 	        		break;
 	        	case c:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(cavalloB));
+	        		buttonMatrix[i][j].setIcon(new ImageIcon(cavalloB));
 	        		break;
 	        	case A:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(alfiereN));
+	        		buttonMatrix[i][j].setIcon(new ImageIcon(alfiereN));
 	        		break;
 	        	case a:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(alfiereB));
+	        		buttonMatrix[i][j].setIcon(new ImageIcon(alfiereB));
 	        		break;
 	        	case Q:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(queenN));
+	        		buttonMatrix[i][j].setIcon(new ImageIcon(queenN));
 	        		break;
 	        	case q:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(queenB));
+	        		buttonMatrix[i][j].setIcon(new ImageIcon(queenB));
 	        		break;
 	        	case K:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(kingN));
+	        		buttonMatrix[i][j].setIcon(new ImageIcon(kingN));
 	        		break;
 	        	case k:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(kingB));
+	        		buttonMatrix[i][j].setIcon(new ImageIcon(kingB));
 	        		break;
 	        	case T:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(torreN));
+	        		buttonMatrix[i][j].setIcon(new ImageIcon(torreN));
 	        		break;
 	        	case t:
-	        		ButtonMatrix[i][j].setIcon(new ImageIcon(torreB));
+	        		buttonMatrix[i][j].setIcon(new ImageIcon(torreB));
 	        		break;
 	        	case V:
 	        		break;

@@ -101,7 +101,7 @@ public class Board {
 	 * @param x Indicates which value to return 
 	 * @return Return the value of the variable check indicated
 	 */
-	public boolean getCheck(int x){
+	public final boolean getCheck(int x){
 		return this.check[x];
 	}
 	
@@ -109,14 +109,14 @@ public class Board {
 	 * @param x Indicates which value to set
 	 * @param value The new value of the variable
 	 */
-	public void setCheck(int x, boolean value){
+	public final void setCheck(int x, boolean value){
 		this.check[x] = value;
 	}
 	
 	/**
 	 * @return Return the value of checkmate
 	 */
-	public boolean getCheckmate(){
+	public final boolean getCheckmate(){
 		return this.checkmate;
 		
 	}
@@ -124,7 +124,7 @@ public class Board {
 	/**
 	 * @param checkmate Indicates the new value of checkmate
 	 */
-	public void setCheckmate(boolean checkmate){
+	public final void setCheckmate(boolean checkmate){
 		this.checkmate = checkmate;
 	}
 	
