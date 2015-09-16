@@ -24,8 +24,8 @@ public class MyFrame extends JFrame {
 	
 	/**
 	 * Auto-generated serialVersionUID
-	 *///TODO
-	//private static final long serialVersionUID = 2339646745849754800L;
+	 */
+	private static final long serialVersionUID = 2339646745849754800L;
 	private static JPanel panel;
 	private static JButton ButtonMatrix[][] = new JButton[8][8];
 	private static final int DEFAULT_WIDTH = 600;

@@ -10,8 +10,8 @@ public class MyButton extends JButton {
 	
 	/**
 	 * Auto-generated serialVersionUID
-	 *///TODO
-	//private static final long serialVersionUID = -783386269101341805L;
+	 */
+	private static final long serialVersionUID = -5427046161285012912L;
 	/**
 	 * Coordinate x of the button
 	 */
