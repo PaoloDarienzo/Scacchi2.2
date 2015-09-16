@@ -23,6 +23,8 @@ public class Main {
 		//The white pieces are at bottom
 
 		int gioco = 1;
+		//TODO
+		//rimuovere con grafica
 		Scanner scan = new Scanner(System.in);
 
 		while (gioco == 1){
@@ -34,7 +36,7 @@ public class Main {
 			Configuration.Initialization(scacchiera);
 			System.out.println(scacchiera.toString());
 			
-			while (!scacchiera.checkmate){
+			while (!scacchiera.getCheckmate()){
 				
 				if (sem){
 					sem = false;

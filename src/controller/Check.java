@@ -492,11 +492,11 @@ public class Check {
 			if (next.getPiece() != Piece.k && next.getPiece() != Piece.K){//jumping king
 				if (Check.selectCheck(scacchiera, next, xKingO, yKingO)){
 					if (myColour == Colour.Bianco){
-						scacchiera.check[1] = true;
+						scacchiera.setCheck(1, true);
 						break;
 					}
 					else{
-						scacchiera.check[0] = true;
+						scacchiera.setCheck(0, true);
 						break;
 					}
 				}
@@ -515,7 +515,7 @@ public class Check {
 		Colour coloreOpposto;
 		int xKingO=0, yKingO=0;
 		boolean safeBox = false;//Reports if there is a safe box for the king
-		scacchiera.checkmate = true; //I suppose it is true, then I put it false if I find an above case.
+		scacchiera.setCheckmate(true); //I suppose it is true, then I put it false if I find an above case.
 		
 		if (myColour == Colour.Bianco){
 			mineIter = scacchiera.Bianchi.iterator();
@@ -606,7 +606,7 @@ public class Check {
 		}
 		
 		if (safeBox)
-			scacchiera.checkmate = false;
+			scacchiera.setCheckmate(false);
 		else{
 			//looking for one of enemy's pedine that can capture the pedine I moved
 			int xTarget = pedinaMossa.getX();
@@ -618,7 +618,7 @@ public class Check {
 				
 				if (Check.selectCheck(scacchiera, candidato, xTarget, yTarget)){
 					set = true;
-					scacchiera.checkmate = false;
+					scacchiera.setCheckmate(false);
 					break;
 				}
 			}
@@ -871,16 +871,16 @@ public class Check {
 					}
 					
 					else{//Enemy can't interfere
-						scacchiera.checkmate = true;
+						scacchiera.setCheckmate(true);
 					}
 				}
 				
 				else{//There isn't the possibility written above
-					scacchiera.checkmate = true;
+					scacchiera.setCheckmate(true);
 				}
 
 				if (exist)//I found a pedine that can interfere, so there isn't checkmate
-					scacchiera.checkmate = false;
+					scacchiera.setCheckmate(false);
 			}
 		}
 		

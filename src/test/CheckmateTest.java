@@ -34,9 +34,9 @@ public class CheckmateTest {
 		scacchiera.Move(scacchiera, scacchiera.getPedine(5, 6), 4, 6);
 		scacchiera.Move(scacchiera, scacchiera.getPedine(0, 3), 4, 7);
 		
-		assertFalse(scacchiera.check[1]);
-		assertTrue(scacchiera.check[0]);
-		assertTrue(scacchiera.checkmate);
+		assertFalse(scacchiera.getCheck(1));
+		assertTrue(scacchiera.getCheck(0));
+		assertTrue(scacchiera.getCheckmate());
 		
 	}
 	
@@ -58,9 +58,9 @@ public class CheckmateTest {
 		scacchiera.Move(scacchiera, scacchiera.getPedine(0, 3), 3, 3);
 		scacchiera.Move(scacchiera, scacchiera.getPedine(3, 3), 3, 4);
 		
-		assertFalse(scacchiera.check[1]);
-		assertTrue(scacchiera.check[0]);
-		assertFalse(scacchiera.checkmate);
+		assertFalse(scacchiera.getCheck(1));
+		assertTrue(scacchiera.getCheck(0));
+		assertFalse(scacchiera.getCheckmate());
 		
 	}
 

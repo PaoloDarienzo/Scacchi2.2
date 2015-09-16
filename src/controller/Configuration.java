@@ -19,8 +19,8 @@ public class Configuration {
 		int i=0, j=0;
 		
 		//Setting boolean array for the check variable
-		scacchiera.check[0] = false; //0=white
-		scacchiera.check[1] = false; //1=black
+		scacchiera.setCheck(0, false);//0=white
+		scacchiera.setCheck(1, false);//1=black
 		//scacchiera.checkmate = false; Already set when object was created
 		
 		//Call the setBoard for every piece of the chessboard

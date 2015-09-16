@@ -19,11 +19,11 @@ public class Board {
 	/**
 	 * Boolean array that tells which king is in check. 0 for white, 1 for black
 	 */
-	public boolean[] check; //0=white, 1=black
+	private boolean[] check; //0=white, 1=black
 	/**
 	 * If true, the game is over
 	 */
-	public boolean checkmate;
+	private boolean checkmate;
 	//creating 2 lists for all the pieces; Neri=black, Bianchi=White
 	/**
 	 * ArrayList that contains all black pieces
@@ -97,6 +97,37 @@ public class Board {
 	}
 	
 	/**
+	 * @param x Indicates which value to return 
+	 * @return Return the value of the variable check indicated
+	 */
+	public boolean getCheck(int x){
+		return this.check[x];
+	}
+	
+	/**
+	 * @param x Indicates which value to set
+	 * @param value The new value of the variable
+	 */
+	public void setCheck(int x, boolean value){
+		this.check[x] = value;
+	}
+	
+	/**
+	 * @return Return the value of checkmate
+	 */
+	public boolean getCheckmate(){
+		return this.checkmate;
+		
+	}
+	
+	/**
+	 * @param checkmate Indicates the new value of checkmate
+	 */
+	public void setCheckmate(boolean checkmate){
+		this.checkmate = checkmate;
+	}
+	
+	/**
 	 * @param x Coordinate x
 	 * @param y Coordinate y
 	 * @return Return the pedine in position[x][y]
@@ -130,6 +161,8 @@ public class Board {
 		//the only one that reach x=7 is black
 		if ( (pedina.getPiece() == Piece.p || pedina.getPiece() == Piece.P) &&
 			 (newX == 0 || newX == 7) ) {
+			//TODO
+			//sostituire con grafica
 			Scanner scan = new Scanner(System.in);
 			boolean scelto=false;
 			//the output is out of the while cycle because there are 2 cases
