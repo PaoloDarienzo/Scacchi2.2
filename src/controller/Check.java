@@ -434,12 +434,12 @@ public class Check {
 			}
 		}
 		else{//mangia in diagonale
-			for (int i=1; cx+i<xKingM && cy+i<yKingM; i++){//il re e' in basso a destra
-				if (newX==cx+i && newY==cy+i)
-					return true;
-			}
 			for (int i=1; cx+i<xKingM && cy-i<yKingM; i++){//il re e' in basso a sinistra
 				if (newX==cx+i && newY==cy-i)
+					return true;
+			}
+			for (int i=1; cx+i<xKingM && cy+i<yKingM; i++){//il re e' in basso a destra
+				if (newX==cx+i && newY==cy+i)
 					return true;
 			}
 			for (int i=1; cx-i<xKingM && cy-i<yKingM; i++){//il re e' in alto a sinistra
@@ -450,7 +450,6 @@ public class Check {
 				if (newX==cx-i && newY==cy+i)
 					return true;
 			}
-			
 		}
 		
 		return false;
