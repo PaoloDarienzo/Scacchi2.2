@@ -381,16 +381,15 @@ public class Check {
 	}
 	
 	/**
-	 * 
-	 * @param scacchiera
-	 * @param candidato
-	 * @param pedinaMossa
-	 * @param newX
-	 * @param newY
-	 * @return
+	 * Function that check if the indicated pedine (pedinaMossa) blocks the path of the other pedine (candidato).
+	 * @param scacchiera Matrix on which working
+	 * @param candidato Pedine which movement has to be controlled
+	 * @param pedinaMossa Pedine of reference
+	 * @param newX Coordinate x target
+	 * @param newY Coordinate y target
+	 * @return Return if the pedine is on the path or not
 	 */
 	private static boolean checkPath(Board scacchiera, Pedine candidato, Pedine pedinaMossa, int newX, int newY) {
-		// TODO
 		
 		int cx = candidato.getX();
 		int cy = candidato.getY();
