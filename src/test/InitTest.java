@@ -1,7 +1,8 @@
 package test;
 
-import controller.*;
-import model.*;
+import model.Board;
+import model.Colour;
+import model.Piece;
 
 /**
  * Class that configures the final configuration of the board for testing.

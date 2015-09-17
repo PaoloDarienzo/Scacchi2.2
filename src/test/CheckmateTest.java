@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import controller.Configuration;
-import model.*;
+import model.Board;
 
 /**
  * Class which tests the check and checkmate variables.

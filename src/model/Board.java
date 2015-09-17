@@ -1,14 +1,12 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.Scanner;
-
 import javax.swing.JOptionPane;
 
 import controller.Check;
 
 /**
- * Board costructor.
+ * Board constructor.
  * @author Paolo D'Arienzo VR376656, Serena Cavaletti VR364691
  */
 public class Board {
@@ -26,10 +24,10 @@ public class Board {
 	 */
 	private boolean checkmate;
 	/**
-	 * Coise for pedine
+	 * Choise for pedine
 	 */
 	private int choise=0;
-	//creating 2 lists for all the pieces; neri=black, bianchi=White
+	//creating 2 lists for all the pieces; neri=black, bianchi=white
 	/**
 	 * ArrayList that contains all black pieces
 	 */
@@ -44,7 +42,6 @@ public class Board {
 	 * Board is a 8x8 matrix.
 	 * Check and checkmate are initialized to false.
 	 */
-	
 	public Board (){
 		
 		this.board = new Pedine [8][8];
@@ -54,14 +51,6 @@ public class Board {
 		this.bianchi = new ArrayList<Pedine>();
 		
 	}
-	
-	//TODO
-	/**
-	 * @return Return the matrix
-	 *//*
-	public Pedine[][] getBoard(){
-		return this.board;
-	}*/
 	
 	/**
 	 * @param x Coordinate x
@@ -123,8 +112,7 @@ public class Board {
 	 * @return Return the value of checkmate
 	 */
 	public final boolean getCheckmate(){
-		return this.checkmate;
-		
+		return this.checkmate;	
 	}
 	
 	/**
@@ -144,7 +132,7 @@ public class Board {
 	}
 	
 	/**
-	 * Set a new pedine in the board. If the pedine is a pawn and reach the end, provides to change pedine
+	 * Set a new pedine in the board. If the pedine is a pawn and reaches the end, provides to change pedine
 	 * @param pedina Pedine to set
 	 * @param newX New coordinate x of the pedine
 	 * @param newY new coordinate y of the pedine
@@ -176,6 +164,8 @@ public class Board {
 			//where the request is made, so I don't repeat it.
 			
 			choosePedine();
+			//TODO
+			//Eliminare?
 			System.out.print("Il pedone ha raggiunto il bordo! Con quale pedina si desidera sostituirla? Inserire nome: ");
 			
 			while(!scelto){
@@ -233,10 +223,14 @@ public class Board {
 					}
 					scelto=true;
 					break;
+					//TODO
+					//Rimuovere caso sotto?
 				//case("RE"):
 					//System.out.println("Un nuovo re e' sceso in campo! Colpo di Stato! AARGH, il nuovo pretendente viene brutalmente massacrato! Un suo vassallo cambia bandiera! Che ruolo vuoi che ricopra? ");
 					//break;
 				default:
+					//TODO
+					//Eliminare?
 					System.out.println("Non ho capito che pedina hai richiesto");
 					System.out.print("Per favore riprova (scelte possibili: alfiere, cavallo, torre, regina): ");
 					
@@ -256,6 +250,11 @@ public class Board {
 		
 	}
 	
+	//TODO
+	//Scrivere javadoc della funzione e commentare in inglese
+	/**
+	 * 
+	 */
 	private void choosePedine() {
 		
 		Object[] pedine = {"Alfiere", "Regina", "Cavallo", "Torre"};
@@ -278,8 +277,9 @@ public class Board {
 	        }
 
 	}
+	
 	/**
-	 * Function that checks if the move is allowed. if it is, it set the movement and set check and checkmate.
+	 * Function that checks if the move is allowed. if it is, it sets the movement and sets check and checkmate.
 	 * @param scacchiera Matrix on which I am working
 	 * @param pedinaMossa Pedine that has to be moved
 	 * @param newX Coordinate x where the pedine has to be moved
@@ -318,6 +318,8 @@ public class Board {
 				set = true;
 			}
 			else{
+				//TODO
+				//Aggiungere grafica
 				System.out.println("Errore, mossa non valida. Il tuo re non puo' essere in scacco!");
 				return false;
 			}
@@ -344,6 +346,8 @@ public class Board {
 			return true;
 		}
 		else
+			//TODO
+			//Aggiungere finestra
 			System.out.println("Errore, mossa non valida.");
 		
 		return false;

@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import controller.Configuration;
-import model.*;
+import model.Board;
 
 /**
  * Class that will test the movements of knights and queens.

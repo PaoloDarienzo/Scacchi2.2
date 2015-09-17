@@ -1,9 +1,11 @@
 package view;
 
+//TODO
+//Rimuovere gli import inutili e lo scanner
 import java.util.Scanner;
 
 import javax.swing.JOptionPane;
-import javax.swing.SwingConstants;
+//import javax.swing.SwingConstants;
 
 import controller.Configuration;
 import model.Board;
@@ -18,10 +20,7 @@ public class Main {
 	static boolean sem = false;
 	static boolean firstClick = true;
 	private static Colour turn = Colour.bianco;
-	static int x;
-	static int y;
-	static int newX;
-	static int newY;
+	static int x, y, newX, newY;
 	
 	public static void main(String[] args){
 		//The white pieces are at bottom
@@ -38,6 +37,8 @@ public class Main {
 			//creating, initializing and first printing of the board
 			final Board scacchiera = new Board();
 			Configuration.initialization(scacchiera);
+			//TODO
+			//Rimuovere?
 			System.out.println(scacchiera.toString());
 			
 			while (!scacchiera.getCheckmate()){
@@ -63,12 +64,16 @@ public class Main {
 
 			}
 			
+			//TODO
+			//Aprire finestra per comunicare fine partita e chiederne un'altra
 			System.out.println("Checkmate!");
 			System.out.print("Giocare un'altra partita? Inserire 1 per si, 0 per no. "); gioco = scan.nextInt();
 			System.out.println();
 			
 		}
 
+		//TODO
+		//Aggiungere finestra
 		System.out.println("Arrivederci!");
 		
 	}

@@ -11,7 +11,7 @@ import model.Piece;
 public class Configuration {
 	
 	/**
-	 * This function initialize the board.
+	 * This function initializes the board.
 	 * @param scacchiera Matrix to initialize
 	 */
 	public static void initialization(Board scacchiera){

@@ -1,20 +1,24 @@
 Per effettuare una mossa, si devono rispettare 2 condizioni:
 1. La pedina deve rispettare le proprie regole di movimento.
 2. Le mie mosse sono valide soltanto se il mio re non e' in scacco.
-In particolare, il secondo punto crea due situazioni, la prima, quando l'avversario mi mette in scacco, allora devo uscire dallo scacco, e la seconda, quando la mia mossa pone il mio re in scacco, quindi la mia mossa deve essere invalida.
+In particolare, il secondo punto crea due situazioni, la prima, quando l'avversario mi mette in scacco, allora devo uscire dallo scacco, 
+e la seconda, quando la mia mossa pone il mio re in scacco,  quindi la mia mossa deve essere invalida.
 Per come abbiamo scritto il codice, il controllo per lo scacco avviene sulla attuale configurazione di scacchiera, quindi ecco la soluzione.
 
 SOLUZIONE:
 Chiamo move.
 Vedo se la pedina da muovere puo' innanzitutto fare quel movimento. Se non puo' termina.
 Se puo', la setto a ghost (se non e' re! Se lo e', vedasi sotto); se nella nuova posizione c'e' una pedina di colore opposto setto a ghost anche quella.
-Controllo se tra tutte le pedine avversarie, esclusa quella ghost che salta il turno in quanto "mangiata", ce n'e' qualcuna che mangia il mio re (non ho ancora mosso la mia pedina, ma e' ghost quindi si finge che non ci sia).
-In piu', se la pedina nella nuova posizione blocca lo scacco, non verrebbe calcolato dal controllo delle altre pedine, poiche' la vedono ghost. Quindi, se possono andare sul re, diranno che possono mangiare solo se non passano dalla casella posizione (spiegazione in fondo).
+Controllo se tra tutte le pedine avversarie, esclusa quella ghost che salta il turno in quanto "mangiata", ce n'e' qualcuna che mangia il mio re 
+(non ho ancora mosso la mia pedina, ma e' ghost quindi si finge che non ci sia).
+In piu', se la pedina nella nuova posizione blocca lo scacco, non verrebbe calcolato dal controllo delle altre pedine, poiche' la vedono ghost. Quindi, se possono andare sul re, diranno che 
+possono mangiare solo se non passano dalla casella posizione (spiegazione in fondo).
 Se non c'e', mossa valida e termino. Se c'e' allora mossa non valida.
 In quel caso, se appunto c'e', allora devo vedere se la partita e' finita:
 (*)
 - Muovo (mal che vada la partita e' finita quindi non mi interessa);
-- Per ogni posizione (cioe' massimo 8) in cui il re nemico puo' andare, chiamo il metodo usato prima: scorro la lista delle (stavolta mie) pedine e vedo se c'e' qualcheduna che vada proprio in quella casella:
+- Per ogni posizione (cioe' massimo 8) in cui il re nemico puo' andare, chiamo il metodo usato prima: scorro la lista delle (stavolta mie) pedine 
+e vedo se c'e' qualcheduna che vada proprio in quella casella:
 		-non ne ho trovate: quella e' una casella papabile; non avviene scacco matto.
 		-Ne ho trovata 1->mossa non valida in quella casella, cambio posizione futura del re.
 			-ho terminato le posizioni in cui il re potrebbe andare->SCACCO MATTO.
@@ -22,16 +26,15 @@ PS: Ad ogni uscita, devo settare a non-ghost le pedine appropriate.
 
 Se invece la pedina mossa e' re, setto a ghost solo la pedina-bersaglio (se non casella vuota).
 Scorro la lista avversaria e vedo se c'e' qualcuna che puo' andare nella mia casella bersaglio. Se c'e', posizione non valida, se non c'e', setto.
-Per sicurezza, vedo se non sono in scacco matto allora (ripeto da *).
+Per sicurezza, vedo se non sono in scacco matto, allora ripeto da (*).
 
 Nello specifico setto a ghost pedina-bersaglio, poi continuo con (*) e se mossa valida, chiamare set.
 
 Spiegazione:
 Tipologie di pedine: pedone, torre, cavallo, alfiere, regina, re.
-Tra queste pedine, quella che raggiungerebbe il re passando per la posizione non-vista della pedina mossa sono:
-- Non il pedone, in quanto mangia di una casella alla volta.
-- Nemmeno il re, quindi.
-- Il cavallo salta, non passa attraverso nulla per mangiare il re.
-- La torre potrebbe. Ma c'e' un solo percorso possibile, quindi se puo' andare, controllo se puo' andare anche nella posizione bersaglio. Se ci puo' andare allora vuol dire che e' passata da li' e quindi andrebbe esclusa.
-- Alfiere, come sopra.
-- Regina: siccome i suoi movimenti, da torre o da alfiere, sono contrastanti, ovvero non puo' raggiungere lo stesso punto muovendosi in entrambe le tipologie, allora vale lo stesso discorso sopracitato per lei.
+Tra queste pedine, quella che raggiungerebbe il re passando per la posizione non-vista della pedina mossa sono soltanto:
+-alfiere
+-torre
+-regina
+Abbiamo creato una funzione che controlla le caselle in mezzo tra re e pedina che mette in scacco;
+dopodiche' controlliamo se la nuova posizione e' una di queste caselle.

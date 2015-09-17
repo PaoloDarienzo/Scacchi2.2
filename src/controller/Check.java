@@ -49,6 +49,9 @@ public class Check {
 		case V:
 			//TODO
 			//through GUI is impossible to select a Void pedine: never occurs.
+			//EDIT
+			//In realta'e' possibile selezionare una pedina vuota, quindi
+			//si aprira' un messaggio di errore (puo' aprirsi direttamente al primo click).
 			System.out.println("Errore: la casella che hai selezionato e' vuota.");
 			return false;
 		}
@@ -57,7 +60,7 @@ public class Check {
 	}
 	
 	/**
-	 * Function that check if the pawn is allowed to move.
+	 * Function that checks if the pawn is allowed to move.
 	 * @param scacchiera Matrix on which working
 	 * @param pawn Pedine to move, in this function is always the pawn
 	 * @param newX New coordinate x of the pedine
@@ -79,14 +82,15 @@ public class Check {
 				return true;
 			//diagonal pedines cannot be ghosts
 			else if	( (colore == Colour.bianco && (newX == x - 1 && (newY == y + 1 || newY == y - 1)) && altraPedina.getColour() == Colour.nero)
-					|| (colore == Colour.nero && (newX == x + 1 && (newY == y + 1 || newY == y - 1)) && altraPedina.getColour() == Colour.bianco) )//if new coord is diagonal, then there must be opposite color
+					|| (colore == Colour.nero && (newX == x + 1 && (newY == y + 1 || newY == y - 1)) && altraPedina.getColour() == Colour.bianco) )
+				//if new coord is diagonal, then there must be opposite color
 				return true; //can capture
 		}
 		return false;
 	}
 	
 	/**
-	 * Function that check if the king is allowed to move.
+	 * Function that checks if the king is allowed to move.
 	 * @param scacchiera Matrix on which working
 	 * @param king Pedine to move, in this function is always the king
 	 * @param newX New coordinate x of the pedine
@@ -97,10 +101,10 @@ public class Check {
 		
 		int x = king.getX();
 		int y = king.getY();
-		Colour c = king.getColour();
 		Pedine altraPedina = scacchiera.getPedine(newX, newY);
 		
-		if (altraPedina.getPiece() == Piece.V || altraPedina.getColour() != c)//if destination is occupied by my ally, I exit and don't proceed in the if body
+		if (altraPedina.getPiece() == Piece.V || altraPedina.getColour() != king.getColour())
+			//if destination is occupied by my ally, I exit and don't proceed in the if body
 		{
 			if (newX == x && newY == y) //That's my spot.
 				return false;
@@ -113,7 +117,7 @@ public class Check {
 	}
 
 	/**
-	 * Function that check if the bishop is allowed to move.
+	 * Function that checks if the bishop is allowed to move.
 	 * @param scacchiera Matrix on which working
 	 * @param bishop Pedine to move, in this function is always the bishop
 	 * @param newX New coordinate x of the pedine
@@ -124,9 +128,8 @@ public class Check {
 
 		int x = bishop.getX();
 		int y = bishop.getY();
-		Colour c = bishop.getColour();
 		
-		if (scacchiera.getPedine(newX, newY).getPiece() == Piece.V || scacchiera.getPedine(newX, newY).getColour() != c){
+		if (scacchiera.getPedine(newX, newY).getPiece() == Piece.V || scacchiera.getPedine(newX, newY).getColour() != bishop.getColour()){
 		
 			//I check if movement on x is the same on y;
 			//if it is, then the movement is diagonal.
@@ -136,7 +139,8 @@ public class Check {
 					if (newY > y){//go right
 						int tmp = y + 1;
 						for (int pos = x - 1; pos > newX; pos--){
-							if (scacchiera.getPedine(pos, tmp).getPiece() != Piece.V && scacchiera.getPedine(pos, tmp).getGhost() == false)//encountering a piece (not ghost) on the path and terminating
+							if (scacchiera.getPedine(pos, tmp).getPiece() != Piece.V && scacchiera.getPedine(pos, tmp).getGhost() == false)
+							//encountering a piece (not ghost) on the path and terminating
 								return false;
 							tmp++;
 						}
@@ -175,7 +179,7 @@ public class Check {
 	}
 
 	/**
-	 * Function that check if the knight is allowed to move.
+	 * Function that checks if the knight is allowed to move.
 	 * @param scacchiera Matrix on which working
 	 * @param knight Pedine to move, in this function is always the knight
 	 * @param newX New coordinate x of the pedine
@@ -186,9 +190,8 @@ public class Check {
 		
 		int x = knight.getX();
 		int y = knight.getY();
-		Colour c = knight.getColour();
 		
-		if ( scacchiera.getPedine(newX, newY).getPiece() == Piece.V || scacchiera.getPedine(newX, newY).getColour() != c )
+		if ( scacchiera.getPedine(newX, newY).getPiece() == Piece.V || scacchiera.getPedine(newX, newY).getColour() != knight.getColour() )
 			if ( (x-newX==2 && (y-newY==-1 || y-newY==1)) ||
 					 (x-newX==-2 && (y-newY==-1 || y-newY==1)) ||
 					 (y-newY==2 && (x-newX==-1 || x-newX==1)) ||
@@ -198,7 +201,7 @@ public class Check {
 	}
 
 	/**
-	 * Function that check if the rook is allowed to move.
+	 * Function that checks if the rook is allowed to move.
 	 * @param scacchiera Matrix on which working
 	 * @param rook Pedine to move, in this function is always the rook
 	 * @param newX New coordinate x of the pedine
@@ -209,9 +212,8 @@ public class Check {
 		
 		int x = rook.getX();
 		int y = rook.getY();
-		Colour c = rook.getColour();
 		
-		if (scacchiera.getPedine(newX, newY).getPiece() == Piece.V || scacchiera.getPedine(newX, newY).getColour() != c ){
+		if (scacchiera.getPedine(newX, newY).getPiece() == Piece.V || scacchiera.getPedine(newX, newY).getColour() != rook.getColour() ){
 			if ( (newX != x && newY != y) || (newX == x && newY == y) ){
 				//it means that it didn't move in "cross"
 				//and changed position
@@ -231,12 +233,12 @@ public class Check {
 				}
 			}
 			else if (newX == x) {//horizontal check, if there is something between rook and destination, exit
-				if ( y > newY ){//I'm moving sx
+				if ( y > newY ){//I'm moving left
 					for (int tmp = y - 1; tmp != newY; tmp--)
 						if (scacchiera.getPedine(x, tmp).getPiece() != Piece.V && scacchiera.getPedine(x, tmp).getGhost() == false)
 							return false;
 				}
-				else { //I'm moving dx
+				else { //I'm moving right
 					for (int tmp = y + 1; tmp != newY; tmp++)
 					if (scacchiera.getPedine(x, tmp).getPiece() != Piece.V && scacchiera.getPedine(x, tmp).getGhost() == false)
 						return false;
@@ -248,7 +250,7 @@ public class Check {
 	}
 	
 	/**
-	 * Function that check if the queen is allowed to move.
+	 * Function that checks if the queen is allowed to move.
 	 * @param scacchiera Matrix on which working
 	 * @param queen Pedine to move, in this function is always the queen
 	 * @param newX New coordinate x of the pedine
@@ -265,10 +267,10 @@ public class Check {
 	}
 	
 	/**
-	 * Function that check if the movement of a pedine doesn't jeopardize the same side's king.
+	 * Function that checks if the movement of a pedine doesn't jeopardize the same side's king.
 	 * @param scacchiera Matrix on which working
 	 * @param pedinaMossa Pedine which movement has to be controlled
-	 * @param newX Coordinate x t\et
+	 * @param newX Coordinate x target
 	 * @param newY Coordinate y target
 	 * @return Return if the move is allowed or not
 	 */
@@ -308,11 +310,10 @@ public class Check {
 			Piece pC = candidato.getPiece();//pC stands for pezzoCandidato
 						
 			if (candidato.getGhost() != true){
-				if (!isKing){//if I am the king, the arraylist is not updated if I want to move; so the next code is for every other piece	
+				if (!isKing){//if I am the king, the array list is not updated if I want to move; so the next code is for every other piece	
 					if (Check.selectCheck(scacchiera, candidato, xKingM, yKingM)){
 						if (pC==Piece.T || pC==Piece.t || pC==Piece.A || pC==Piece.a || pC==Piece.Q || pC==Piece.q){
-						//TODO
-							if(!checkPath(scacchiera, candidato, pedinaMossa, newX, newY)){
+							if(!checkPath(scacchiera, candidato, pedinaMossa, newX, newY)){//Checking if the piece candidate will block the path
 								moveAllowed = false;
 								break;
 							}
@@ -382,7 +383,7 @@ public class Check {
 	}
 	
 	/**
-	 * Function that check if the indicated pedine (pedinaMossa) blocks the path of the other pedine (candidato).
+	 * Function that checks if the indicated pedine (pedinaMossa) blocks the path of the other pedine (candidato).
 	 * @param scacchiera Matrix on which working
 	 * @param candidato Pedine which movement has to be controlled
 	 * @param pedinaMossa Pedine of reference
@@ -405,48 +406,48 @@ public class Check {
 			yKingM = scacchiera.neri.get(0).getY();
 		}			
 		
-		if (cx==xKingM){//Mangia in riga
-			if (yKingM > cy){//Il re e' a destra
+		if (cx==xKingM){//Capture in row
+			if (yKingM > cy){//king is at right
 				for (int i=1; cy+i<yKingM; i++){
-					if (newY==cy+i && newX==cx)//allora la pedinaMossa e' nel path
+					if (newY==cy+i && newX==cx)//then pedinaMossa is on path
 						return true;
 				}
 			}
-			else{//il re e' a sinistra
+			else{//king is at left
 				for (int i=-1; cy+i<yKingM; i--){
-					if (newY==cy+i && newX==cx)//allora la pedinaMossa e' nel path
+					if (newY==cy+i && newX==cx)//then pedinaMossa is on path
 						return true;
 				}
 			}
 		}
-		else if (cy==yKingM){//Mangia in colonna
-			if (xKingM > cx){//Il re e' sotto
+		else if (cy==yKingM){//Capture in column
+			if (xKingM > cx){//king is below
 				for (int i=1; cx+i<xKingM; i++){
-					if (newX==cx+i && newY==cy)//allora la pedinaMossa e' nel path
+					if (newX==cx+i && newY==cy)//then pedinaMossa is on path
 						return true;
 				}
 			}
-			else{//il re e' sopra
+			else{//king is above
 				for (int i=-1; cx+i<xKingM; i--){
-					if (newX==cx+i && newY==cy)//allora la pedinaMossa e' nel path
+					if (newX==cx+i && newY==cy)//then pedinaMossa is on path
 						return true;
 				}
 			}
 		}
-		else{//mangia in diagonale
-			for (int i=1; cx+i<xKingM && cy-i>yKingM; i++){//il re e' in basso a sinistra
+		else{//Capture diagonally
+			for (int i=1; cx+i<xKingM && cy-i>yKingM; i++){//king is in the lower left
 				if (newX==cx+i && newY==cy-i)
 					return true;
 			}
-			for (int i=1; cx+i<xKingM && cy+i<yKingM; i++){//il re e' in basso a destra
+			for (int i=1; cx+i<xKingM && cy+i<yKingM; i++){//king is in the lower right
 				if (newX==cx+i && newY==cy+i)
 					return true;
 			}
-			for (int i=1; cx-i>xKingM && cy-i>yKingM; i++){//il re e' in alto a sinistra
+			for (int i=1; cx-i>xKingM && cy-i>yKingM; i++){//king is in the upper left
 				if (newX==cx-i && newY==cy-i)
 					return true;
 			}
-			for (int i=1; cx-i>xKingM && cy+i<yKingM; i++){//il re e' in alto a destra
+			for (int i=1; cx-i>xKingM && cy+i<yKingM; i++){//king is in the upper right
 				if (newX==cx-i && newY==cy+i)
 					return true;
 			}
@@ -596,7 +597,7 @@ public class Check {
 							}
 						}
 						else if (Check.selectCheck(scacchiera, candidato, xKingO+i, yKingO+j)){
-							//One of my pedine can go in that box, so it's safe anymore for the king
+							//One of my pedine can go in that box, so it's not safe anymore for the king
 							safeBox = false;
 							break;
 						}

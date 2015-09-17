@@ -1,7 +1,7 @@
 package model;
 
 /**
- * Enumerate the colour type: White, Black or Neuter.
+ * Enumerate the colour type: white, black or neuter.
  * @author Paolo D'Arienzo VR376656, Serena Cavaletti VR364691
  */
 public enum Colour {
