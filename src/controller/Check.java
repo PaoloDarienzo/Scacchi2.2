@@ -47,6 +47,7 @@ public class Check {
 		case t:
 			return rook(scacchiera, pedina, newX, newY);
 		case V:
+			//TODO
 			//through GUI is impossible to select a Void pedine: never occurs.
 			System.out.println("Errore: la casella che hai selezionato e' vuota.");
 			return false;
@@ -267,7 +268,7 @@ public class Check {
 	 * Function that check if the movement of a pedine doesn't jeopardize the same side's king.
 	 * @param scacchiera Matrix on which working
 	 * @param pedinaMossa Pedine which movement has to be controlled
-	 * @param newX Coordinate x target
+	 * @param newX Coordinate x t\et
 	 * @param newY Coordinate y target
 	 * @return Return if the move is allowed or not
 	 */

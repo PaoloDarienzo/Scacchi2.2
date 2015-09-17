@@ -1,6 +1,10 @@
 package view;
 
 import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
+
 import controller.Configuration;
 import model.Board;
 import model.Colour;
@@ -50,13 +54,15 @@ public class Main {
 						
 						System.out.println(scacchiera.toString());
 					}
-					else
+					else{ //TODO
+						JOptionPane.showMessageDialog(null, "It's not your turn");
+						//new TurnWindow();
 						System.out.println("It's not your turn.");
-					
+					}
 				}				
 
 			}
-		
+			
 			System.out.println("Checkmate!");
 			System.out.print("Giocare un'altra partita? Inserire 1 per si, 0 per no. "); gioco = scan.nextInt();
 			System.out.println();

@@ -3,8 +3,9 @@ package model;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import controller.Check;
+import javax.swing.JOptionPane;
 
+import controller.Check;
 
 /**
  * Board costructor.
@@ -24,6 +25,10 @@ public class Board {
 	 * If true, the game is over
 	 */
 	private boolean checkmate;
+	/**
+	 * Coise for pedine
+	 */
+	private int choise=0;
 	//creating 2 lists for all the pieces; neri=black, bianchi=White
 	/**
 	 * ArrayList that contains all black pieces
@@ -39,6 +44,7 @@ public class Board {
 	 * Board is a 8x8 matrix.
 	 * Check and checkmate are initialized to false.
 	 */
+	
 	public Board (){
 		
 		this.board = new Pedine [8][8];
@@ -164,44 +170,18 @@ public class Board {
 			 (newX == 0 || newX == 7) ) {
 			//TODO
 			//sostituire con grafica
-			Scanner scan = new Scanner(System.in);
+
 			boolean scelto=false;
 			//the output is out of the while cycle because there are 2 cases
 			//where the request is made, so I don't repeat it.
+			
+			choosePedine();
 			System.out.print("Il pedone ha raggiunto il bordo! Con quale pedina si desidera sostituirla? Inserire nome: ");
 			
 			while(!scelto){
 				
-				String scelta = scan.nextLine();
-				
-				switch (scelta.toUpperCase()){ //I transpose all the letters of the string in uppercase to match every input
-				case("REGINA"):
-					if (colorePedina == Colour.bianco){
-						setBoard(newX, newY, Piece.q, colorePedina);
-						this.bianchi.add(this.getPedine(newX, newY));
-						this.bianchi.remove(pedina);
-					}
-					else{
-						setBoard(newX, newY, Piece.Q, colorePedina);
-						this.neri.add(this.getPedine(newX, newY));
-						this.neri.remove(pedina);
-					}
-					scelto=true;
-					break;
-				case("TORRE"):
-					if (colorePedina == Colour.bianco){
-						setBoard(newX, newY, Piece.t, colorePedina);
-						this.bianchi.add(this.getPedine(newX, newY));
-						this.bianchi.remove(pedina);
-					}
-					else{
-						setBoard(newX, newY, Piece.T, colorePedina);
-						this.neri.add(this.getPedine(newX, newY));
-						this.neri.remove(pedina);
-					}
-					scelto=true;
-					break;
-				case("ALFIERE"):
+				switch (choise){ //I transpose all the letters of the string in uppercase to match every input
+				case(0):
 					if (colorePedina == Colour.bianco){
 						setBoard(newX, newY, Piece.a, colorePedina);
 						this.bianchi.add(this.getPedine(newX, newY));
@@ -214,7 +194,20 @@ public class Board {
 					}
 					scelto=true;
 					break;
-				case("CAVALLO"):
+				case(1):
+					if (colorePedina == Colour.bianco){
+						setBoard(newX, newY, Piece.q, colorePedina);
+						this.bianchi.add(this.getPedine(newX, newY));
+						this.bianchi.remove(pedina);
+					}
+					else{
+						setBoard(newX, newY, Piece.Q, colorePedina);
+						this.neri.add(this.getPedine(newX, newY));
+						this.neri.remove(pedina);
+					}
+					scelto=true;
+					break;
+				case(2):
 					if (colorePedina == Colour.bianco){
 						setBoard(newX, newY, Piece.c, colorePedina);
 						this.bianchi.add(this.getPedine(newX, newY));
@@ -227,9 +220,22 @@ public class Board {
 					}
 					scelto=true;
 					break;
-				case("RE"):
-					System.out.println("Un nuovo re e' sceso in campo! Colpo di Stato! AARGH, il nuovo pretendente viene brutalmente massacrato! Un suo vassallo cambia bandiera! Che ruolo vuoi che ricopra? ");
+				case(3):
+					if (colorePedina == Colour.bianco){
+						setBoard(newX, newY, Piece.t, colorePedina);
+						this.bianchi.add(this.getPedine(newX, newY));
+						this.bianchi.remove(pedina);
+					}
+					else{
+						setBoard(newX, newY, Piece.T, colorePedina);
+						this.neri.add(this.getPedine(newX, newY));
+						this.neri.remove(pedina);
+					}
+					scelto=true;
 					break;
+				//case("RE"):
+					//System.out.println("Un nuovo re e' sceso in campo! Colpo di Stato! AARGH, il nuovo pretendente viene brutalmente massacrato! Un suo vassallo cambia bandiera! Che ruolo vuoi che ricopra? ");
+					//break;
 				default:
 					System.out.println("Non ho capito che pedina hai richiesto");
 					System.out.print("Per favore riprova (scelte possibili: alfiere, cavallo, torre, regina): ");
@@ -250,6 +256,28 @@ public class Board {
 		
 	}
 	
+	private void choosePedine() {
+		
+		Object[] pedine = {"Alfiere", "Regina", "Cavallo", "Torre"};
+		String s = (String) JOptionPane.showInputDialog(
+		           null,
+	               "Choose your new pedine!",
+	               "Pedine",
+	               JOptionPane.PLAIN_MESSAGE,
+	               null,//icona
+	               pedine,
+	               null);
+		
+		 for (int i = 0; i < pedine.length; i++) {
+	            if (s != null && s.compareTo(pedine[i].toString()) == 0) {
+	                choise = i;
+	                break;
+	            } else if (s == null) {// non sono state scelte pedine
+	                System.exit(0);
+	            }
+	        }
+
+	}
 	/**
 	 * Function that checks if the move is allowed. if it is, it set the movement and set check and checkmate.
 	 * @param scacchiera Matrix on which I am working
