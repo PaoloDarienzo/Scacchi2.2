@@ -313,7 +313,7 @@ public class Check {
 				if (!isKing){//if I am the king, the array list is not updated if I want to move; so the next code is for every other piece	
 					if (Check.selectCheck(scacchiera, candidato, xKingM, yKingM)){
 						if (pC==Piece.T || pC==Piece.t || pC==Piece.A || pC==Piece.a || pC==Piece.Q || pC==Piece.q){
-							if(!checkPath(scacchiera, candidato, pedinaMossa, newX, newY)){//Checking if the piece candidate will block the path
+							if(!checkPath(scacchiera, candidato, pedinaMossa, newX, newY)){//Checking if the piece pedinaMossa will block the path
 								moveAllowed = false;
 								break;
 							}
@@ -428,7 +428,7 @@ public class Check {
 				}
 			}
 			else{//king is above
-				for (int i=-1; cx+i<xKingM; i--){
+				for (int i=-1; cx+i>xKingM; i--){
 					if (newX==cx+i && newY==cy)//then pedinaMossa is on path
 						return true;
 				}
