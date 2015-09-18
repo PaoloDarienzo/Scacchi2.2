@@ -166,9 +166,9 @@ public class Board {
 			choosePedine();
 			//TODO
 			//Eliminare?
-			System.out.print("Il pedone ha raggiunto il bordo! Con quale pedina si desidera sostituirla? Inserire nome: ");
+			//System.out.print("Il pedone ha raggiunto il bordo! Con quale pedina si desidera sostituirla? Inserire nome: ");
 			
-			while(!scelto){
+			//while(!scelto){
 				
 				switch (choise){ //I transpose all the letters of the string in uppercase to match every input
 				case(0):
@@ -235,7 +235,7 @@ public class Board {
 					System.out.print("Per favore riprova (scelte possibili: alfiere, cavallo, torre, regina): ");
 					
 				}
-			}
+		//	}
 		}
 		
 		else{
@@ -320,7 +320,8 @@ public class Board {
 			else{
 				//TODO
 				//Aggiungere grafica
-				System.out.println("Errore, mossa non valida. Il tuo re non puo' essere in scacco!");
+				JOptionPane.showMessageDialog(null, "Errore, mossa non valida. Il tuo re non puo' essere in scacco!");
+				//System.out.println("Errore, mossa non valida. Il tuo re non puo' essere in scacco!");
 				return false;
 			}
 			
@@ -348,7 +349,8 @@ public class Board {
 		else
 			//TODO
 			//Aggiungere finestra
-			System.out.println("Errore, mossa non valida.");
+			JOptionPane.showMessageDialog(null, "Errore, mossa non valida.");
+			//System.out.println("Errore, mossa non valida.");
 		
 		return false;
 		
