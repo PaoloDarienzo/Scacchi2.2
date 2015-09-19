@@ -281,6 +281,7 @@ public class Check {
 		Colour myColour = pedinaMossa.getColour();
 		int xKingM = 0, yKingM = 0;//My king
 		boolean moveAllowed = true;
+		boolean existPawn = false;
 		boolean isKing = (pedinaMossa.getPiece() == Piece.K || pedinaMossa.getPiece() == Piece.k) ? true : false;
 		
 		//setting iterator
@@ -326,47 +327,33 @@ public class Check {
 				}
 				else{//if I am the king, I have to check if every candidate can go on my future coordinates
 					if (pC == Piece.p || pC == Piece.P){
-						if (myColour == Colour.bianco){//black pawn case
-							if(newY-1<0){
-								if((scacchiera.getPedine(newX-1, newY+1).getPiece() == Piece.P)){//there is a pawn that can capture me if I go in the new position
-									moveAllowed = false;
+						if (myColour == Colour.bianco){
+							//my king is white, I have to check black pawns
+							if (newY-1>=0){//there is space to the right, checking
+								if (scacchiera.getPedine(newX-1, newY+1).getPiece() == Piece.P){//there is a pawn that can capture me if I go in the new position
+									existPawn = true;
 									break;
 								}
 							}
-							else if(newY+1>7){
-								if((scacchiera.getPedine(newX-1, newY-1).getPiece() == Piece.P)){//there is a pawn that can capture me if I go in the new position
-									moveAllowed = false;
+							if (newY+1<=7){//there is space to the left, checking
+								if (scacchiera.getPedine(newX-1, newY-1).getPiece() == Piece.P){//there is a pawn that can capture me if I go in the new position
+									existPawn = true;
 									break;
-								}
-							}
-							else{
-								if(newY-1<0){
-									if((scacchiera.getPedine(newX-1, newY+1).getPiece() == Piece.P) || (scacchiera.getPedine(newX-1, newY-1).getPiece() == Piece.P)){//there is a pawn that can capture me if I go in the new position
-										moveAllowed = false;
-										break;
-									}
 								}
 							}
 						}
 						else{
-							if(newY-1<0){
-								if((scacchiera.getPedine(newX+1, newY+1).getPiece() == Piece.p)){//there is a pawn that can capture me if I go in the new position
-									moveAllowed = false;
+						//my king is black, I have to check white pawns
+							if (newY-1>=0){//there is space to the right, checking
+								if (scacchiera.getPedine(newX+1, newY+1).getPiece() == Piece.p){//there is a pawn that can capture me if I go in the new position
+									existPawn = true;
 									break;
 								}
 							}
-							else if(newY+1>7){
-								if((scacchiera.getPedine(newX+1, newY-1).getPiece() == Piece.p)){//there is a pawn that can capture me if I go in the new position
-									moveAllowed = false;
+							if (newY+1<=7){//there is space to the left, checking
+								if (scacchiera.getPedine(newX+1, newY-1).getPiece() == Piece.p){//there is a pawn that can capture me if I go in the new position
+									existPawn = true;
 									break;
-								}
-							}
-							else{
-								if(newY-1<0){
-									if((scacchiera.getPedine(newX+1, newY+1).getPiece() == Piece.p) || (scacchiera.getPedine(newX+1, newY-1).getPiece() == Piece.p)){//there is a pawn that can capture me if I go in the new position
-										moveAllowed = false;
-										break;
-									}
 								}
 							}							
 						}
@@ -379,7 +366,11 @@ public class Check {
 			}//ignore pedine if ghost
 		}
 		
-		return moveAllowed;
+		if (existPawn){
+			return false;
+		}
+		else
+			return moveAllowed;
 	}
 	
 	/**
