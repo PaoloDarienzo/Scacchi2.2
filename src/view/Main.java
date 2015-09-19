@@ -24,7 +24,7 @@ public class Main {
 	private static Colour turn = Colour.bianco;
 	static int x, y, newX, newY;
 	
-	public static void main(String[] args){
+	public static void main(String[] args) throws InterruptedException{
 		//The white pieces are at bottom
 
 		int gioco = 0;
@@ -67,7 +67,9 @@ public class Main {
 			}
 			
 			//TODO
+			//dire chi ha vinto e in inglese
 			//Aprire finestra per comunicare fine partita e chiederne un'altra
+			//Sistemare icona
 			JOptionPane option = new JOptionPane ("CheckMate!\n"
 					+ "Giocare un'altra partita?", JOptionPane.QUESTION_MESSAGE, JOptionPane.YES_NO_OPTION);
 			JDialog dialog = option.createDialog(null,"Hai Vinto!");
@@ -89,7 +91,10 @@ public class Main {
 
 		//TODO
 		//Aggiungere finestra
+		//In inglese. Ps la finestra non si apre in tempo per essere vista, ho aggiunto 3 sec di sleep
+		//PPS non funziona uguale xD
 		JOptionPane.showMessageDialog(null, "Arrivederci!");
+		Thread.sleep(3000, 0);
 		System.exit(0);
 		//System.out.println("Arrivederci!");
 		

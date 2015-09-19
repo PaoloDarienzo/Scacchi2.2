@@ -320,6 +320,7 @@ public class Board {
 			else{
 				//TODO
 				//Aggiungere grafica
+				//Tradurre in inglese
 				JOptionPane.showMessageDialog(null, "Errore, mossa non valida. Il tuo re non puo' essere in scacco!");
 				//System.out.println("Errore, mossa non valida. Il tuo re non puo' essere in scacco!");
 				return false;
@@ -349,6 +350,7 @@ public class Board {
 		else
 			//TODO
 			//Aggiungere finestra
+			//Tradurre in inglese
 			JOptionPane.showMessageDialog(null, "Errore, mossa non valida.");
 			//System.out.println("Errore, mossa non valida.");
 		
