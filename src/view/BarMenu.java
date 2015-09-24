@@ -1,13 +1,14 @@
-
 package view;
 
-import java.awt.*;
+import java.awt.Menu;
+import java.awt.MenuBar;
+import java.awt.MenuItem;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 /**
- * Classe dedicata al Menu.
+ * Class dedicated to the menu.
  * @author Paolo D'Arienzo VR376656, Serena Cavaletti VR364691
  */
 public class BarMenu extends MenuBar {

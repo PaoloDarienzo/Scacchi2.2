@@ -26,7 +26,7 @@ public class Board {
 	/**
 	 * Choise for pedine
 	 */
-	private int choise=0;
+	private int choice=0;
 	//creating 2 lists for all the pieces; neri=black, bianchi=white
 	/**
 	 * ArrayList that contains all black pieces
@@ -158,19 +158,13 @@ public class Board {
 			 (newX == 0 || newX == 7) ) {
 			//TODO
 			//sostituire con grafica
-
-			boolean scelto=false;
+			
 			//the output is out of the while cycle because there are 2 cases
 			//where the request is made, so I don't repeat it.
 			
 			choosePedine();
-			//TODO
-			//Eliminare?
-			//System.out.print("Il pedone ha raggiunto il bordo! Con quale pedina si desidera sostituirla? Inserire nome: ");
-			
-			//while(!scelto){
 				
-				switch (choise){ //I transpose all the letters of the string in uppercase to match every input
+				switch (choice){
 				case(0):
 					if (colorePedina == Colour.bianco){
 						setBoard(newX, newY, Piece.a, colorePedina);
@@ -182,7 +176,6 @@ public class Board {
 						this.neri.add(this.getPedine(newX, newY));
 						this.neri.remove(pedina);
 					}
-					scelto=true;
 					break;
 				case(1):
 					if (colorePedina == Colour.bianco){
@@ -195,7 +188,6 @@ public class Board {
 						this.neri.add(this.getPedine(newX, newY));
 						this.neri.remove(pedina);
 					}
-					scelto=true;
 					break;
 				case(2):
 					if (colorePedina == Colour.bianco){
@@ -208,7 +200,6 @@ public class Board {
 						this.neri.add(this.getPedine(newX, newY));
 						this.neri.remove(pedina);
 					}
-					scelto=true;
 					break;
 				case(3):
 					if (colorePedina == Colour.bianco){
@@ -221,21 +212,8 @@ public class Board {
 						this.neri.add(this.getPedine(newX, newY));
 						this.neri.remove(pedina);
 					}
-					scelto=true;
 					break;
-					//TODO
-					//Rimuovere caso sotto?
-				//case("RE"):
-					//System.out.println("Un nuovo re e' sceso in campo! Colpo di Stato! AARGH, il nuovo pretendente viene brutalmente massacrato! Un suo vassallo cambia bandiera! Che ruolo vuoi che ricopra? ");
-					//break;
-				default:
-					//TODO
-					//Eliminare?
-					System.out.println("Non ho capito che pedina hai richiesto");
-					System.out.print("Per favore riprova (scelte possibili: alfiere, cavallo, torre, regina): ");
-					
 				}
-		//	}
 		}
 		
 		else{
@@ -246,7 +224,7 @@ public class Board {
 			this.board[newX][newY] = pedina;
 		}
 
-		this.board[x][y] = new Void(x, y); //Free old pos
+		this.board[x][y] = new Void(x, y); //Free old position
 		
 	}
 	
@@ -257,7 +235,7 @@ public class Board {
 	 */
 	private void choosePedine() {
 		
-		Object[] pedine = {"Alfiere", "Regina", "Cavallo", "Torre"};
+		Object[] pedine = {"Bishop", "Queen", "Knight", "Rook"};
 		String s = (String) JOptionPane.showInputDialog(
 		           null,
 	               "Choose your new pedine!",
@@ -269,7 +247,7 @@ public class Board {
 		
 		 for (int i = 0; i < pedine.length; i++) {
 	            if (s != null && s.compareTo(pedine[i].toString()) == 0) {
-	                choise = i;
+	                choice = i;
 	                break;
 	            } else if (s == null) {// non sono state scelte pedine
 	                System.exit(0);
@@ -320,9 +298,7 @@ public class Board {
 			else{
 				//TODO
 				//Aggiungere grafica
-				//Tradurre in inglese
-				JOptionPane.showMessageDialog(null, "Errore, mossa non valida. Il tuo re non puo' essere in scacco!");
-				//System.out.println("Errore, mossa non valida. Il tuo re non puo' essere in scacco!");
+				JOptionPane.showMessageDialog(null, "Error, move is not allowed. Your king can't be in check!");
 				return false;
 			}
 			
@@ -350,9 +326,7 @@ public class Board {
 		else
 			//TODO
 			//Aggiungere finestra
-			//Tradurre in inglese
-			JOptionPane.showMessageDialog(null, "Errore, mossa non valida.");
-			//System.out.println("Errore, mossa non valida.");
+			JOptionPane.showMessageDialog(null, "Error, invalid move.");
 		
 		return false;
 		

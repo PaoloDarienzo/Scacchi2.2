@@ -1,18 +1,17 @@
 package view;
 
-import view.BarMenu;
-
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 
 /**
  * Game window.
  * @author Paolo D'Arienzo VR376656, Serena Cavaletti VR364691
- *
  */
 public class Window {
 
+	/**
+	 * Function that creates the window game.
+	 */
 	public Window(){
 		
 		EventQueue.invokeLater(new Runnable(){
