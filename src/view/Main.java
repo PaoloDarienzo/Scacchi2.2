@@ -22,9 +22,10 @@ public class Main {
 		//The white pieces are at bottom
 
 		int gioco = 0;
-		new Window();
 
 		while (!(gioco == 1)){
+			
+			new Window();
 			
 			//creating, initializing and first printing of the board
 			final Board scacchiera = new Board();
@@ -70,7 +71,7 @@ public class Main {
 			}
 			
 			//TODO
-			//se voglio fare un'altra partita devo prima chiudere la finestra della partita precedente.
+			//se voglio fare un'altra partita devo prima chiudere la finestra della partita precedente?
 			
 		}	
 	}
