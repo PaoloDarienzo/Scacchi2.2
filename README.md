@@ -1,4 +1,4 @@
-# Scacchi2.0
+# Scacchi2.2
 
 Chess java project for Univr, 2015.
 
