@@ -32,10 +32,10 @@ public class Main {
 			//System.out.println(scacchiera.toString());
 			
 			while (!scacchiera.getCheckmate()){
-				
+
 				if (sem){//Waiting the inputs from the window
 					sem = false;
-					
+
 					if(scacchiera.getPedine(x, y).getColour() == turn){
 					
 						if (scacchiera.move(scacchiera, scacchiera.getPedine(x, y), newX, newY)){
@@ -53,23 +53,22 @@ public class Main {
 			JOptionPane option = new JOptionPane ("CheckMate!\n"
 					+ "Do you want to play another game?", JOptionPane.QUESTION_MESSAGE, JOptionPane.YES_NO_OPTION, null);
 			
+			JDialog dialog = null;
 			if (turn == Colour.bianco){
-				JDialog dialog = option.createDialog(null,"Black side won!");
-				dialog.pack();
-				dialog.setVisible(true);
-				gioco = ((Integer)option.getValue()).intValue(); //saving the choice: 0: yes 1: no
+				dialog = option.createDialog(null,"Black side won!");
 			}
 			else{
-				JDialog dialog = option.createDialog(null,"White side won!");
-				dialog.pack();
-				dialog.setVisible(true);
-				gioco = ((Integer)option.getValue()).intValue(); //saving the choice: 0: yes 1: no
+				dialog = option.createDialog(null,"White side won!");
 			}
+			dialog.pack();
+			dialog.setVisible(true);
+			gioco = ((Integer)option.getValue()).intValue(); //saving the choice: 0: yes 1: no
 			
 			if(gioco == 1){
 				JOptionPane.showMessageDialog(null, "See you soon!");
 				System.exit(0);
 			}
+			
 			//TODO
 			//se voglio fare un'altra partita devo prima chiudere la finestra della partita precedente.
 			
