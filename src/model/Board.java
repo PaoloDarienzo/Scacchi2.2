@@ -24,7 +24,7 @@ public class Board {
 	 */
 	private boolean checkmate;
 	/**
-	 * Choise for pedine
+	 * Choice for pedine
 	 */
 	private int choice=0;
 	//creating 2 lists for all the pieces; neri=black, bianchi=white
@@ -132,7 +132,7 @@ public class Board {
 	}
 	
 	/**
-	 * Set a new pedine in the board. If the pedine is a pawn and reaches the end, provides to change pedine
+	 * Set a new pedine in the board. If the pedine is a pawn and reaches the end, provides to change pedine.
 	 * @param pedina Pedine to set
 	 * @param newX New coordinate x of the pedine
 	 * @param newY new coordinate y of the pedine
@@ -156,9 +156,6 @@ public class Board {
 		//the only one that reach x=7 is black
 		if ( (pedina.getPiece() == Piece.p || pedina.getPiece() == Piece.P) &&
 			 (newX == 0 || newX == 7) ) {
-			//TODO
-			//sostituire con grafica
-			
 			//the output is out of the while cycle because there are 2 cases
 			//where the request is made, so I don't repeat it.
 			
@@ -228,20 +225,18 @@ public class Board {
 		
 	}
 	
-	//TODO
-	//Scrivere javadoc della funzione e commentare in inglese
 	/**
-	 * 
+	 * Function that allows user to choose the new piece for the promotion of the pawn.
 	 */
 	private void choosePedine() {
 		
 		Object[] pedine = {"Bishop", "Queen", "Knight", "Rook"};
 		String s = (String) JOptionPane.showInputDialog(
 		           null,
-	               "Choose your new pedine!",
-	               "Pedine",
+	               "Choose your new piece!",
+	               "Promotion",
 	               JOptionPane.PLAIN_MESSAGE,
-	               null,//icona
+	               null,//icon
 	               pedine,
 	               null);
 		
@@ -249,7 +244,7 @@ public class Board {
 	            if (s != null && s.compareTo(pedine[i].toString()) == 0) {
 	                choice = i;
 	                break;
-	            } else if (s == null) {// non sono state scelte pedine
+	            } else if (s == null) {//wasn't choose pieces
 	                System.exit(0);
 	            }
 	        }
@@ -281,11 +276,7 @@ public class Board {
 			//I HAVE TO CHECK IF THIS BEHAVIOR ENDANGERS MY KING
 			//AND I HAVE TO SET CHECK OR CHECKMATE
 			
-			Piece pezzo = pedinaMossa.getPiece();
-			
-			if (pezzo != Piece.k && pezzo != Piece.K){
-				pedinaMossa.setGhost(true); //My pedine is now a ghost, no one can see it (king excluded)
-			}
+				pedinaMossa.setGhost(true); //My pedine is now a ghost, no one can see it
 			
 			if (scacchiera.getPedine(newX,  newY).getPiece() != Piece.V) //on the target there is a pedine (obviously is not allied)
 				scacchiera.getPedine(newX,  newY).setGhost(true); //setting ghost true of pedine's target
@@ -296,9 +287,7 @@ public class Board {
 				set = true;
 			}
 			else{
-				//TODO
-				//Aggiungere grafica
-				JOptionPane.showMessageDialog(null, "Error, move is not allowed. Your king can't be in check!");
+				JOptionPane.showMessageDialog(null, "Error, move is not allowed. Your king can't be in check!", "Check", JOptionPane.ERROR_MESSAGE);
 				return false;
 			}
 			
@@ -324,20 +313,17 @@ public class Board {
 			return true;
 		}
 		else
-			//TODO
-			//Aggiungere finestra
-			JOptionPane.showMessageDialog(null, "Error, invalid move.");
+			JOptionPane.showMessageDialog(null, "Error, that piece can't do that.", "Error, invalid move", JOptionPane.ERROR_MESSAGE);
 		
 		return false;
 		
 	}	
 	
+	/*
 	@Override
 	public String toString(){
 		
-		//TODO
 		//funzione che serve per stampare la scacchiera
-		//INUTILE UNA VOLTA SVILUPPATA GUI
 		int i,j;
 		String res="";
 		res+=" ";
@@ -365,6 +351,6 @@ public class Board {
 		}
 
 		return res;
-	}	
+	}*/
 
 }

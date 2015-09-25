@@ -2,8 +2,10 @@ package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -28,8 +30,11 @@ public class MyFrame extends JFrame {
 	private static final long serialVersionUID = 2339646745849754800L;
 	private static JPanel panel;
 	private static JButton buttonMatrix[][] = new JButton[8][8];
-	private static final int DEFAULT_WIDTH = 600;
-	private static final int DEFAULT_HEIGHT = 400;
+	
+	private static Toolkit kit = Toolkit.getDefaultToolkit();
+	private static Dimension screenSize = kit.getScreenSize();
+	private static int screenHeight = screenSize.height;
+	private static int screenWidth = screenSize.width;
 	
 	/**
 	 * Loading white bishop image
@@ -86,8 +91,7 @@ public class MyFrame extends JFrame {
 		Image icon = new ImageIcon("images/Chessboard.gif").getImage();
 		setIconImage(icon);
 		
-		setSize(DEFAULT_WIDTH, DEFAULT_HEIGHT);
-		//setLayout(new FlowLayout());
+		setSize(((screenWidth/4)*3), ((screenHeight/4)*3));
 		
 		panel = new JPanel();
 		panel.setLayout(new GridLayout(8, 8));
@@ -258,7 +262,7 @@ public class MyFrame extends JFrame {
 	            }     
             }
         }
-	//Validating everything on the panel so it can be desplayed
+	//Validating everything on the panel so it can be displayed
 	panel.revalidate();
 	        
 	}	

@@ -13,8 +13,9 @@ import javax.swing.JOptionPane;
  */
 public class BarMenu extends MenuBar {
 
-	//TODO
-	//sistemare la javadoc
+	/**
+	 * Auto-generated serialVersionUID
+	 */
 	private static final long serialVersionUID = -2397370419829851151L;
 
 	private final Menu help = new Menu("Help");
@@ -38,9 +39,9 @@ public class BarMenu extends MenuBar {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(null, "L'obbiettivo del giocatore e' quello di battere l'avversario dando scacco \n"
-                		+ "matto al suo Re. Questo accade quando il Re nemico si trova sotto scacco, \n"
+                		+ "matto al suo Re. Questo accade quando il re nemico si trova sotto scacco, \n"
                 		+ "cioe' sotto il tiro di uno o piu' pezzi del giocatore, e non gli e' possibile \n"
-                		+ "spostarsi in altre caselle, perche' bloccate o anch'esse sotto scacco, o bloccare \n"
+                		+ "spostarsi in altre caselle, poiche' bloccate o anch'esse sotto scacco, o bloccare \n"
                 		+ "lo scacco in altra maniera, come per esempio mangiando il pezzo che sta dando \n"
                 		+ "scacco con un qualunque pezzo del proprio schieramento o interponendo uno di \n"
                 		+ "essi lungo la linea del pezzo che gli sta dando scacco. \n", "Rules", JOptionPane.INFORMATION_MESSAGE);
@@ -51,7 +52,7 @@ public class BarMenu extends MenuBar {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null,"                     Created by \n Paolo D'Arienzo & Serena Cavaletti", "About", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null,"                  Created by \n Paolo D'Arienzo & Serena Cavaletti", "About", JOptionPane.INFORMATION_MESSAGE);
             }
         });
     }

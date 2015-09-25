@@ -47,12 +47,7 @@ public class Check {
 		case t:
 			return rook(scacchiera, pedina, newX, newY);
 		case V:
-			//TODO
-			//through GUI is impossible to select a Void pedine: never occurs.
-			//EDIT
-			//In realta'e' possibile selezionare una pedina vuota, quindi
-			//si aprira' un messaggio di errore (puo' aprirsi direttamente al primo click).
-			System.out.println("Errore: la casella che hai selezionato e' vuota.");
+			//Never occurs, because V pieces are not white or black so this function is never called
 			return false;
 		}
 		

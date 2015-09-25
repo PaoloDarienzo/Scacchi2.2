@@ -55,7 +55,7 @@ public enum Piece {
 	 */
 	p,
 	/**
-	 * Void pedine
+	 * Void piece
 	 */
 	V
 

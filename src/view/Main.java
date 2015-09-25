@@ -22,10 +22,9 @@ public class Main {
 		//The white pieces are at bottom
 
 		int gioco = 0;
+		new Window();
 
 		while (!(gioco == 1)){
-			
-			new Window();
 			
 			//creating, initializing and first printing of the board
 			final Board scacchiera = new Board();
@@ -36,6 +35,7 @@ public class Main {
 				
 				if (sem){//Waiting the inputs from the window
 					sem = false;
+					
 					if(scacchiera.getPedine(x, y).getColour() == turn){
 					
 						if (scacchiera.move(scacchiera, scacchiera.getPedine(x, y), newX, newY)){
@@ -45,15 +45,11 @@ public class Main {
 						//System.out.println(scacchiera.toString());
 					}
 					else{
-						//TODO
-						//Modificare funzione, guardare le API
-						JOptionPane.showMessageDialog(null, "It's not your turn.");
+						JOptionPane.showMessageDialog(null, "It's not your turn.", "Turn error", JOptionPane.WARNING_MESSAGE);
 					}
 				}
 			}
 			
-			//TODO
-			//Sistemare icona e inserire percorso al posto di null
 			JOptionPane option = new JOptionPane ("CheckMate!\n"
 					+ "Do you want to play another game?", JOptionPane.QUESTION_MESSAGE, JOptionPane.YES_NO_OPTION, null);
 			
