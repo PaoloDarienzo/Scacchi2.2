@@ -27,13 +27,13 @@ public class CheckmateTest {
 		Board scacchiera = new Board();
 		Configuration.initialization(scacchiera);
 		
-		//Moving the pedines
-		scacchiera.move(scacchiera, scacchiera.getPedine(6, 5), 5, 5);
-		scacchiera.move(scacchiera, scacchiera.getPedine(1, 4), 2, 4);
-		scacchiera.move(scacchiera, scacchiera.getPedine(6, 6), 5, 6);
-		scacchiera.move(scacchiera, scacchiera.getPedine(2, 4), 3, 4);
-		scacchiera.move(scacchiera, scacchiera.getPedine(5, 6), 4, 6);
-		scacchiera.move(scacchiera, scacchiera.getPedine(0, 3), 4, 7);
+		//Moving the chessmen
+		scacchiera.move(scacchiera, scacchiera.getChessman(6, 5), 5, 5);
+		scacchiera.move(scacchiera, scacchiera.getChessman(1, 4), 2, 4);
+		scacchiera.move(scacchiera, scacchiera.getChessman(6, 6), 5, 6);
+		scacchiera.move(scacchiera, scacchiera.getChessman(2, 4), 3, 4);
+		scacchiera.move(scacchiera, scacchiera.getChessman(5, 6), 4, 6);
+		scacchiera.move(scacchiera, scacchiera.getChessman(0, 3), 4, 7);
 		
 		assertFalse(scacchiera.getCheck(1));
 		assertTrue(scacchiera.getCheck(0));
@@ -51,13 +51,13 @@ public class CheckmateTest {
 		Configuration.initialization(scacchiera);
 		
 		
-		scacchiera.move(scacchiera, scacchiera.getPedine(6, 4), 5, 4);
-		scacchiera.move(scacchiera, scacchiera.getPedine(5, 4), 4, 4);
-		scacchiera.move(scacchiera, scacchiera.getPedine(4, 4), 3, 4);
-		scacchiera.move(scacchiera, scacchiera.getPedine(3, 4), 2, 4);
-		scacchiera.move(scacchiera, scacchiera.getPedine(1, 3), 2, 4);
-		scacchiera.move(scacchiera, scacchiera.getPedine(0, 3), 3, 3);
-		scacchiera.move(scacchiera, scacchiera.getPedine(3, 3), 3, 4);
+		scacchiera.move(scacchiera, scacchiera.getChessman(6, 4), 5, 4);
+		scacchiera.move(scacchiera, scacchiera.getChessman(5, 4), 4, 4);
+		scacchiera.move(scacchiera, scacchiera.getChessman(4, 4), 3, 4);
+		scacchiera.move(scacchiera, scacchiera.getChessman(3, 4), 2, 4);
+		scacchiera.move(scacchiera, scacchiera.getChessman(1, 3), 2, 4);
+		scacchiera.move(scacchiera, scacchiera.getChessman(0, 3), 3, 3);
+		scacchiera.move(scacchiera, scacchiera.getChessman(3, 3), 3, 4);
 		
 		assertFalse(scacchiera.getCheck(1));
 		assertTrue(scacchiera.getCheck(0));
