@@ -37,9 +37,9 @@ public class Main {
 				if (sem){//Waiting the inputs from the window
 					sem = false;
 
-					if(scacchiera.getPedine(x, y).getColour() == turn){
+					if(scacchiera.getChessman(x, y).getColour() == turn){
 					
-						if (scacchiera.move(scacchiera, scacchiera.getPedine(x, y), newX, newY)){
+						if (scacchiera.move(scacchiera, scacchiera.getChessman(x, y), newX, newY)){
 							turn = (turn == Colour.bianco) ? Colour.nero : Colour.bianco;
 							MyFrame.generateBoard(scacchiera);
 						}

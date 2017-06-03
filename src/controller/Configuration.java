@@ -57,30 +57,30 @@ public class Configuration {
 				scacchiera.setBoard(i, j, Piece.V, Colour.neutro);
 		
 		//Setting lists: Black one
-		scacchiera.neri.add(scacchiera.getPedine(0, 4)); //king first
-		scacchiera.neri.add(scacchiera.getPedine(0, 0));
-		scacchiera.neri.add(scacchiera.getPedine(0, 7));
-		scacchiera.neri.add(scacchiera.getPedine(0, 1));
-		scacchiera.neri.add(scacchiera.getPedine(0, 6));
-		scacchiera.neri.add(scacchiera.getPedine(0, 2));
-		scacchiera.neri.add(scacchiera.getPedine(0, 5));
-		scacchiera.neri.add(scacchiera.getPedine(0, 3));
+		scacchiera.neri.add(scacchiera.getChessman(0, 4)); //king first
+		scacchiera.neri.add(scacchiera.getChessman(0, 0));
+		scacchiera.neri.add(scacchiera.getChessman(0, 7));
+		scacchiera.neri.add(scacchiera.getChessman(0, 1));
+		scacchiera.neri.add(scacchiera.getChessman(0, 6));
+		scacchiera.neri.add(scacchiera.getChessman(0, 2));
+		scacchiera.neri.add(scacchiera.getChessman(0, 5));
+		scacchiera.neri.add(scacchiera.getChessman(0, 3));
 		for (i=1; i<2; i++)
 			for (j=0; j<8; j++)
-				scacchiera.neri.add(scacchiera.getPedine(i, j));
+				scacchiera.neri.add(scacchiera.getChessman(i, j));
 		
 		//White one
-		scacchiera.bianchi.add(scacchiera.getPedine(7, 4)); //king first
-		scacchiera.bianchi.add(scacchiera.getPedine(7, 0));
-		scacchiera.bianchi.add(scacchiera.getPedine(7, 7));
-		scacchiera.bianchi.add(scacchiera.getPedine(7, 1));
-		scacchiera.bianchi.add(scacchiera.getPedine(7, 6));
-		scacchiera.bianchi.add(scacchiera.getPedine(7, 2));
-		scacchiera.bianchi.add(scacchiera.getPedine(7, 5));
-		scacchiera.bianchi.add(scacchiera.getPedine(7, 3));
+		scacchiera.bianchi.add(scacchiera.getChessman(7, 4)); //king first
+		scacchiera.bianchi.add(scacchiera.getChessman(7, 0));
+		scacchiera.bianchi.add(scacchiera.getChessman(7, 7));
+		scacchiera.bianchi.add(scacchiera.getChessman(7, 1));
+		scacchiera.bianchi.add(scacchiera.getChessman(7, 6));
+		scacchiera.bianchi.add(scacchiera.getChessman(7, 2));
+		scacchiera.bianchi.add(scacchiera.getChessman(7, 5));
+		scacchiera.bianchi.add(scacchiera.getChessman(7, 3));
 		for (i=6; i<7; i++)
 			for (j=0; j<8; j++)
-				scacchiera.bianchi.add(scacchiera.getPedine(i, j));
+				scacchiera.bianchi.add(scacchiera.getChessman(i, j));
 	}
 
 }

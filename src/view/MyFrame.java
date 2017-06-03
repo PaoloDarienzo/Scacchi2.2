@@ -132,7 +132,7 @@ public class MyFrame extends JFrame {
 			}
 		}
 		
-		//Black pedines
+		//Black chessmen
 		buttonMatrix[0][0].setIcon(new ImageIcon(torreN));
 		buttonMatrix[0][7].setIcon(new ImageIcon(torreN));
 		
@@ -150,7 +150,7 @@ public class MyFrame extends JFrame {
 			buttonMatrix[1][i].setIcon(new ImageIcon(pedoneN));
 		}
 		
-		//White pedines
+		//White chessmen
 		buttonMatrix[7][0].setIcon(new ImageIcon(torreB));
 		buttonMatrix[7][7].setIcon(new ImageIcon(torreB));
 		
@@ -217,7 +217,7 @@ public class MyFrame extends JFrame {
 			         }
 				});
 					
-	            Piece pezzo = scacchiera.getPedine(i, j).getPiece();
+	            Piece pezzo = scacchiera.getChessman(i, j).getPiece();
 	                
 	            //Assigning the right icon on the button
 	            switch(pezzo){

@@ -37,37 +37,37 @@ public class MoveTest {
 		InitTest.knight(scacchiera2);
 		
 		//black
-		scacchiera1.move(scacchiera1, scacchiera1.getPedine(0, 1), 2, 2);
-		scacchiera1.move(scacchiera1, scacchiera1.getPedine(2, 2), 4, 1);
-		scacchiera1.move(scacchiera1, scacchiera1.getPedine(4, 1), 6, 0);
+		scacchiera1.move(scacchiera1, scacchiera1.getChessman(0, 1), 2, 2);
+		scacchiera1.move(scacchiera1, scacchiera1.getChessman(2, 2), 4, 1);
+		scacchiera1.move(scacchiera1, scacchiera1.getChessman(4, 1), 6, 0);
 		//white
-		scacchiera1.move(scacchiera1, scacchiera1.getPedine(7, 1), 5, 2);
-		scacchiera1.move(scacchiera1, scacchiera1.getPedine(5, 2), 4, 4);
-		scacchiera1.move(scacchiera1, scacchiera1.getPedine(4, 4), 5, 6);
+		scacchiera1.move(scacchiera1, scacchiera1.getChessman(7, 1), 5, 2);
+		scacchiera1.move(scacchiera1, scacchiera1.getChessman(5, 2), 4, 4);
+		scacchiera1.move(scacchiera1, scacchiera1.getChessman(4, 4), 5, 6);
 		
 		//Checking x, y, piece type and colour of black knight
-		assertEquals(scacchiera2.getPedine(6, 0).getX(), scacchiera1.getPedine(6, 0).getX());
-		assertEquals(scacchiera2.getPedine(6, 0).getY(), scacchiera1.getPedine(6, 0).getY());
-		assertEquals(scacchiera2.getPedine(6, 0).getPiece(), scacchiera1.getPedine(6, 0).getPiece());
-		assertEquals(scacchiera2.getPedine(6, 0).getColour(), scacchiera1.getPedine(6, 0).getColour());
+		assertEquals(scacchiera2.getChessman(6, 0).getX(), scacchiera1.getChessman(6, 0).getX());
+		assertEquals(scacchiera2.getChessman(6, 0).getY(), scacchiera1.getChessman(6, 0).getY());
+		assertEquals(scacchiera2.getChessman(6, 0).getPiece(), scacchiera1.getChessman(6, 0).getPiece());
+		assertEquals(scacchiera2.getChessman(6, 0).getColour(), scacchiera1.getChessman(6, 0).getColour());
 		
 		//Checking x, y, piece type and colour of white knight
-		assertEquals(scacchiera2.getPedine(5, 6).getX(), scacchiera1.getPedine(5, 6).getX());
-		assertEquals(scacchiera2.getPedine(5, 6).getY(), scacchiera1.getPedine(5, 6).getY());
-		assertEquals(scacchiera2.getPedine(5, 6).getPiece(), scacchiera1.getPedine(5, 6).getPiece());
-		assertEquals(scacchiera2.getPedine(5, 6).getColour(), scacchiera1.getPedine(5, 6).getColour());
+		assertEquals(scacchiera2.getChessman(5, 6).getX(), scacchiera1.getChessman(5, 6).getX());
+		assertEquals(scacchiera2.getChessman(5, 6).getY(), scacchiera1.getChessman(5, 6).getY());
+		assertEquals(scacchiera2.getChessman(5, 6).getPiece(), scacchiera1.getChessman(5, 6).getPiece());
+		assertEquals(scacchiera2.getChessman(5, 6).getColour(), scacchiera1.getChessman(5, 6).getColour());
 		
-		//Checking the void pedine left behind from starting point, black side
-		assertEquals(scacchiera2.getPedine(0, 1).getX(), scacchiera1.getPedine(0, 1).getX());
-		assertEquals(scacchiera2.getPedine(0, 1).getY(), scacchiera1.getPedine(0, 1).getY());
-		assertEquals(scacchiera2.getPedine(0, 1).getPiece(), scacchiera1.getPedine(0, 1).getPiece());
-		assertEquals(scacchiera2.getPedine(0, 1).getColour(), scacchiera1.getPedine(0, 1).getColour());
+		//Checking the void chessman left behind from starting point, black side
+		assertEquals(scacchiera2.getChessman(0, 1).getX(), scacchiera1.getChessman(0, 1).getX());
+		assertEquals(scacchiera2.getChessman(0, 1).getY(), scacchiera1.getChessman(0, 1).getY());
+		assertEquals(scacchiera2.getChessman(0, 1).getPiece(), scacchiera1.getChessman(0, 1).getPiece());
+		assertEquals(scacchiera2.getChessman(0, 1).getColour(), scacchiera1.getChessman(0, 1).getColour());
 		
-		//Checking the void pedine left behind from starting point, black side
-		assertEquals(scacchiera2.getPedine(7, 1).getX(), scacchiera1.getPedine(7, 1).getX());
-		assertEquals(scacchiera2.getPedine(7, 1).getY(), scacchiera1.getPedine(7, 1).getY());
-		assertEquals(scacchiera2.getPedine(7, 1).getPiece(), scacchiera1.getPedine(7, 1).getPiece());
-		assertEquals(scacchiera2.getPedine(7, 1).getColour(), scacchiera1.getPedine(7, 1).getColour());
+		//Checking the void chessman left behind from starting point, black side
+		assertEquals(scacchiera2.getChessman(7, 1).getX(), scacchiera1.getChessman(7, 1).getX());
+		assertEquals(scacchiera2.getChessman(7, 1).getY(), scacchiera1.getChessman(7, 1).getY());
+		assertEquals(scacchiera2.getChessman(7, 1).getPiece(), scacchiera1.getChessman(7, 1).getPiece());
+		assertEquals(scacchiera2.getChessman(7, 1).getColour(), scacchiera1.getChessman(7, 1).getColour());
 		
 	}
 
@@ -101,39 +101,39 @@ public class MoveTest {
 		InitTest.queen(scacchiera2);
 		
 		//black
-		scacchiera1.move(scacchiera1, scacchiera1.getPedine(1, 3), 2, 3);
-		scacchiera1.move(scacchiera1, scacchiera1.getPedine(0, 3), 1, 3);
-		scacchiera1.move(scacchiera1, scacchiera1.getPedine(1, 3), 4, 6);
-		scacchiera1.move(scacchiera1, scacchiera1.getPedine(4, 6), 2, 6);
+		scacchiera1.move(scacchiera1, scacchiera1.getChessman(1, 3), 2, 3);
+		scacchiera1.move(scacchiera1, scacchiera1.getChessman(0, 3), 1, 3);
+		scacchiera1.move(scacchiera1, scacchiera1.getChessman(1, 3), 4, 6);
+		scacchiera1.move(scacchiera1, scacchiera1.getChessman(4, 6), 2, 6);
 		//white
-		scacchiera1.move(scacchiera1, scacchiera1.getPedine(6, 3), 5, 3);
-		scacchiera1.move(scacchiera1, scacchiera1.getPedine(7, 3), 6, 3);
-		scacchiera1.move(scacchiera1, scacchiera1.getPedine(6, 3), 3, 0);
-		scacchiera1.move(scacchiera1, scacchiera1.getPedine(3, 0), 5, 0);
+		scacchiera1.move(scacchiera1, scacchiera1.getChessman(6, 3), 5, 3);
+		scacchiera1.move(scacchiera1, scacchiera1.getChessman(7, 3), 6, 3);
+		scacchiera1.move(scacchiera1, scacchiera1.getChessman(6, 3), 3, 0);
+		scacchiera1.move(scacchiera1, scacchiera1.getChessman(3, 0), 5, 0);
 		
 		//Checking x, y, piece type and colour of black queen
-		assertEquals(scacchiera2.getPedine(2, 6).getX(), scacchiera1.getPedine(2, 6).getX());
-		assertEquals(scacchiera2.getPedine(2, 6).getY(), scacchiera1.getPedine(2, 6).getY());
-		assertEquals(scacchiera2.getPedine(2, 6).getPiece(), scacchiera1.getPedine(2, 6).getPiece());
-		assertEquals(scacchiera2.getPedine(2, 6).getColour(), scacchiera1.getPedine(2, 6).getColour());
+		assertEquals(scacchiera2.getChessman(2, 6).getX(), scacchiera1.getChessman(2, 6).getX());
+		assertEquals(scacchiera2.getChessman(2, 6).getY(), scacchiera1.getChessman(2, 6).getY());
+		assertEquals(scacchiera2.getChessman(2, 6).getPiece(), scacchiera1.getChessman(2, 6).getPiece());
+		assertEquals(scacchiera2.getChessman(2, 6).getColour(), scacchiera1.getChessman(2, 6).getColour());
 				
 		//Checking x, y, piece type and colour of white queen
-		assertEquals(scacchiera2.getPedine(5, 0).getX(), scacchiera1.getPedine(5, 0).getX());
-		assertEquals(scacchiera2.getPedine(5, 0).getY(), scacchiera1.getPedine(5, 0).getY());
-		assertEquals(scacchiera2.getPedine(5, 0).getPiece(), scacchiera1.getPedine(5, 0).getPiece());
-		assertEquals(scacchiera2.getPedine(5, 0).getColour(), scacchiera1.getPedine(5, 0).getColour());
+		assertEquals(scacchiera2.getChessman(5, 0).getX(), scacchiera1.getChessman(5, 0).getX());
+		assertEquals(scacchiera2.getChessman(5, 0).getY(), scacchiera1.getChessman(5, 0).getY());
+		assertEquals(scacchiera2.getChessman(5, 0).getPiece(), scacchiera1.getChessman(5, 0).getPiece());
+		assertEquals(scacchiera2.getChessman(5, 0).getColour(), scacchiera1.getChessman(5, 0).getColour());
 		
-		//Checking the void pedine left behind from starting point, black side
-		assertEquals(scacchiera2.getPedine(0, 3).getX(), scacchiera1.getPedine(0, 3).getX());
-		assertEquals(scacchiera2.getPedine(0, 3).getY(), scacchiera1.getPedine(0, 3).getY());
-		assertEquals(scacchiera2.getPedine(0, 3).getPiece(), scacchiera1.getPedine(0, 3).getPiece());
-		assertEquals(scacchiera2.getPedine(0, 3).getColour(), scacchiera1.getPedine(0, 3).getColour());
+		//Checking the void chessman left behind from starting point, black side
+		assertEquals(scacchiera2.getChessman(0, 3).getX(), scacchiera1.getChessman(0, 3).getX());
+		assertEquals(scacchiera2.getChessman(0, 3).getY(), scacchiera1.getChessman(0, 3).getY());
+		assertEquals(scacchiera2.getChessman(0, 3).getPiece(), scacchiera1.getChessman(0, 3).getPiece());
+		assertEquals(scacchiera2.getChessman(0, 3).getColour(), scacchiera1.getChessman(0, 3).getColour());
 				
-		//Checking the void pedine left behind from starting point, black side
-		assertEquals(scacchiera2.getPedine(7, 3).getX(), scacchiera1.getPedine(7, 3).getX());
-		assertEquals(scacchiera2.getPedine(7, 3).getY(), scacchiera1.getPedine(7, 3).getY());
-		assertEquals(scacchiera2.getPedine(7, 3).getPiece(), scacchiera1.getPedine(7, 3).getPiece());
-		assertEquals(scacchiera2.getPedine(7, 3).getColour(), scacchiera1.getPedine(7, 3).getColour());
+		//Checking the void chessman left behind from starting point, black side
+		assertEquals(scacchiera2.getChessman(7, 3).getX(), scacchiera1.getChessman(7, 3).getX());
+		assertEquals(scacchiera2.getChessman(7, 3).getY(), scacchiera1.getChessman(7, 3).getY());
+		assertEquals(scacchiera2.getChessman(7, 3).getPiece(), scacchiera1.getChessman(7, 3).getPiece());
+		assertEquals(scacchiera2.getChessman(7, 3).getColour(), scacchiera1.getChessman(7, 3).getColour());
 		
 	}
 	

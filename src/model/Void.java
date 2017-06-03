@@ -6,7 +6,7 @@ package model;
  * Void constructor.
  * @author Paolo D'Arienzo VR376656, Serena Cavaletti VR364691
  */
-public class Void extends Pedine{
+public class Void extends Chessman{
 	
 	/**
 	 * Constructor of void; no need to specify colour and piece type.
