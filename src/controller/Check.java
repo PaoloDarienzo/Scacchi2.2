@@ -494,6 +494,7 @@ public class Check {
 /**
  * Set the checkmate variable of board.
  * @param scacchiera Matrix which I am working on
+ * @param pedinaMossa Piece moved
  * @param myColour I used the colour for having some references (me, enemy)
  */
 	public static void checkmate(Board scacchiera, Pedine pedinaMossa, Colour myColour){
