@@ -13,7 +13,12 @@ import model.Colour;
  */
 public class Main {
 	
-	static boolean sem = false;
+	/*
+	 * sem is volatile because otherwise the 
+	 * compiler optimise the while cycle
+	 * and it will be stuck in an infinite loop
+	 */
+	static volatile boolean sem = false;
 	static boolean firstClick = true;
 	private static Colour turn = Colour.bianco;
 	static int x, y, newX, newY;
@@ -33,12 +38,17 @@ public class Main {
 			//System.out.println(scacchiera.toString());
 			
 			while (!scacchiera.getCheckmate()){
-
+				
+				//THE NEXT LINE IS THE ONE
+				//if is not there, the program doesn't work
+				//everything inside the println is ok
+				//System.out.println(sem);
+				
 				if (sem){//Waiting the inputs from the window
 					sem = false;
-
-					if(scacchiera.getChessman(x, y).getColour() == turn){
 					
+					if(scacchiera.getChessman(x, y).getColour() == turn){
+						
 						if (scacchiera.move(scacchiera, scacchiera.getChessman(x, y), newX, newY)){
 							turn = (turn == Colour.bianco) ? Colour.nero : Colour.bianco;
 							MyFrame.generateBoard(scacchiera);
