@@ -39,11 +39,6 @@ public class Main {
 			
 			while (!scacchiera.getCheckmate()){
 				
-				//THE NEXT LINE IS THE ONE
-				//if is not there, the program doesn't work
-				//everything inside the println is ok
-				//System.out.println(sem);
-				
 				if (sem){//Waiting the inputs from the window
 					sem = false;
 					
